@@ -1,8 +1,8 @@
 import { css } from "@panda/css";
 import { RiExternalLinkLine } from "@remixicon/react";
 import Link from "next/link";
-import { useHeroAreaContext } from "@/context/provider";
 import CountUp from "@/components/blocks/TextAnimations/CountUp/CountUp";
+import { useHeroAreaContext } from "@/context/provider";
 
 export const FloatingButton = ({
 	wait,

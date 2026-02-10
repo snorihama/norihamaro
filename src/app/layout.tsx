@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
 import "./globals.css";
 import { css } from "@panda/css";
-import { MenuProvider, FreezeWhileMenuOpen } from "@/context/provider";
+import { FreezeWhileMenuOpen, MenuProvider } from "@/context/provider";
 
 const hinaMincho = Hina_Mincho({
 	variable: "--fonts-hina-mincho",

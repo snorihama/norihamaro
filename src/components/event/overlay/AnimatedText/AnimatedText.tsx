@@ -1,6 +1,7 @@
 import { css } from "@panda/css";
 import { useEffect, useState } from "react";
 import { textLineStyle } from "./AnimatedText.recipe";
+
 type TextNode = {
 	id: number;
 	text: string;

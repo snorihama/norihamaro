@@ -1,7 +1,7 @@
 import { css } from "@panda/css";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/section";
 
 export const AboutUs = () => {
 	const { ref, inView } = useInView({

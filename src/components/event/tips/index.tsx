@@ -1,7 +1,7 @@
 import { css } from "@panda/css";
 import type { FC } from "react";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/section";
 
 const Q: FC<{ str: string }> = ({ str }) => {
 	const { ref, inView } = useInView({

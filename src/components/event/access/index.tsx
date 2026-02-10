@@ -3,7 +3,7 @@ import { css } from "@panda/css";
 import { RiErrorWarningFill } from "@remixicon/react";
 import Image from "next/image";
 import { useState } from "react";
-import { Section } from "../Section";
+import { Section } from "@/components/section";
 import { Preview } from "./Preview";
 
 export const Access = () => {

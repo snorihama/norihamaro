@@ -2,8 +2,8 @@
 import { css } from "@panda/css";
 import { type FC, useEffect, useState } from "react";
 import { AnimatedText } from "./AnimatedText/AnimatedText";
-import { overlayStyles } from "./recipe";
 import { ParticleBackground } from "./ParticleBackground/ParticleBackground";
+import { overlayStyles } from "./recipe";
 
 const delay = 0.4;
 const span = 1.5;

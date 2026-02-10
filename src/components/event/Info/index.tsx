@@ -4,8 +4,8 @@ import Link from "next/link";
 import type React from "react";
 import type { FC } from "react";
 import { useInView } from "react-intersection-observer";
-import { scrollToSection } from "../ScrollPlugin";
-import { Section } from "../Section";
+import { Section } from "../../section";
+import { scrollToSection } from "../scroll-plugin";
 
 type SubSectionProps = {
 	title: string;

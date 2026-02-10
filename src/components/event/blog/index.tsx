@@ -1,7 +1,7 @@
 import { css } from "@panda/css";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/section";
 
 const SubSection = ({ str }: { str: string }) => {
 	const { ref, inView } = useInView({

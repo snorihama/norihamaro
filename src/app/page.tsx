@@ -1,4 +1,4 @@
-import { Main } from "@/components/Home";
+import { Main } from "@/components/event";
 
 export default function Home() {
 	return <Main />;

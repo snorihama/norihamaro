@@ -2,9 +2,9 @@
 
 import { css } from "@panda/css";
 import { type FormEvent, useRef, useState } from "react";
+import { useWaitTime } from "@/hooks/waitTime";
 import { updateStatus } from "@/lib/service/supabase";
 import { generateAuthUrl } from "@/lib/service/twitter";
-import { useWaitTime } from "@/hooks/waitTime";
 
 export const Admin = () => {
 	const [wait, setWait] = useState<string>("");
