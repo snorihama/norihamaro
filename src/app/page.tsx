@@ -1,5 +1,2 @@
-import { Main } from "@/components/event";
-
-export default function Home() {
-	return <Main />;
-}
+import {Home} from "@/components/home";
+export default Home;
