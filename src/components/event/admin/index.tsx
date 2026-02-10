@@ -1,6 +1,5 @@
 "use client";
 
-import { css } from "@panda/css";
 import { type FormEvent, useRef, useState } from "react";
 import { useWaitTime } from "@/hooks/waitTime";
 import { updateStatus } from "@/lib/service/supabase";
@@ -64,44 +63,17 @@ export const Admin = () => {
 	};
 
 	return (
-		<div
-			className={css({
-				width: "full",
-				padding: "2rem",
-			})}
-		>
+		<div className="w-full p-8">
 			{/* <input type="text" ref={inputRef} />
       <button onClick={gen}>ABC</button> */}
 			<form onSubmit={handleSubmit}>
-				<div
-					className={css({
-						width: "full",
-						display: "flex",
-						flexDirection: "column",
-						gap: "1rem",
-						rounded: "lg",
-						backgroundColor: "gray.100",
-						padding: "1rem",
-					})}
-				>
+				<div className="w-full flex flex-col gap-4 rounded-lg bg-gray-100 p-4">
 					<div>
 						<p>現在の推定待ち時間は{tmpWait ?? "null"}分です</p>
 						<p>エラーメッセージ: {error ?? "null"}</p>
 					</div>
-					<label
-						className={css({ width: "full", display: "flex", gap: "1rem" })}
-					>
-						<span
-							className={css({
-								width: "30%",
-								rounded: "lg",
-								backgroundColor: "primary",
-								color: "beige",
-								fontWeight: "900",
-								padding: "0.25rem",
-								textAlign: "center",
-							})}
-						>
+					<label className="w-full flex gap-4">
+						<span className="w-[30%] rounded-lg bg-primary text-beige font-black p-1 text-center">
 							{"待ち時間 (分)"}
 						</span>
 						<input
@@ -110,110 +82,40 @@ export const Admin = () => {
 							onChange={(e) => {
 								setWait(e.target.value);
 							}}
-							className={css({
-								border: "solid 1px",
-								borderColor: "primary",
-								rounded: "lg",
-								padding: "0.25rem",
-								color: "primary",
-								_focus: {
-									shadow: "md",
-									outline: "none",
-								},
-							})}
+							className="border border-primary rounded-lg p-1 text-primary focus:shadow-md focus:outline-none"
 						/>
 						{"*"}
 					</label>
 
-					<label
-						className={css({ width: "full", display: "flex", gap: "1rem" })}
-					>
-						<span
-							className={css({
-								width: "30%",
-								rounded: "lg",
-								backgroundColor: "primary",
-								color: "beige",
-								fontWeight: "900",
-								padding: "0.25rem",
-								textAlign: "center",
-							})}
-						>
+					<label className="w-full flex gap-4">
+						<span className="w-[30%] rounded-lg bg-primary text-beige font-black p-1 text-center">
 							{"品切れ"}
 						</span>
 						<input
 							type="checkbox"
 							checked={soldOut}
 							onChange={(e) => setSoldOut(e.target.checked)}
-							className={css({
-								border: "solid 1px",
-								borderColor: "primary",
-								rounded: "lg",
-								padding: "0.25rem",
-								color: "primary",
-							})}
+							className="border border-primary rounded-lg p-1 text-primary"
 						/>
 					</label>
 
-					<label
-						className={css({ width: "full", display: "flex", gap: "1rem" })}
-					>
-						<span
-							className={css({
-								width: "30%",
-								rounded: "lg",
-								backgroundColor: "primary",
-								color: "beige",
-								fontWeight: "900",
-								padding: "0.25rem",
-								textAlign: "center",
-							})}
-						>
+					<label className="w-full flex gap-4">
+						<span className="w-[30%] rounded-lg bg-primary text-beige font-black p-1 text-center">
 							{"表示メッセージ"}
 						</span>
 						<input
 							type="text"
 							value={message}
 							onChange={(e) => setMessage(e.target.value)}
-							className={css({
-								border: "solid 1px",
-								borderColor: "primary",
-								rounded: "lg",
-								padding: "0.25rem",
-								color: "primary",
-								_focus: {
-									shadow: "md",
-									outline: "none",
-								},
-							})}
+							className="border border-primary rounded-lg p-1 text-primary focus:shadow-md focus:outline-none"
 						/>
 					</label>
 
-					<div className={css({ width: "full", paddingX: "1rem" })}>
-						<div
-							className={css({
-								width: "full",
-								display: "flex",
-								flexDirection: "column",
-								gap: "0.5rem",
-								justifyContent: "center",
-								alignItems: "center",
-								borderTop: "solid 1px",
-								borderColor: "primary",
-								paddingTop: "0.5rem",
-							})}
-						>
+					<div className="w-full px-4">
+						<div className="w-full flex flex-col gap-2 justify-center items-center border-t border-primary pt-2">
 							<button
 								type="submit"
-								className={css({
-									width: "30%",
-									rounded: "lg",
-									backgroundColor: "white",
-									color: "primary",
-									fontWeight: "900",
-									padding: "0.25rem",
-									textAlign: "center",
-								})}
+								className="w-[30%] rounded-lg bg-white text-primary font-black p-1 text-center"
 							>
 								送信
 							</button>

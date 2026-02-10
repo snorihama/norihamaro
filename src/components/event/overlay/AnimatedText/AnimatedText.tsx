@@ -1,4 +1,3 @@
-import { css } from "@panda/css";
 import { useEffect, useState } from "react";
 import { textLineStyle } from "./AnimatedText.recipe";
 
@@ -37,15 +36,7 @@ export const AnimatedText = ({
 	}, [texts, delay, span]);
 
 	return (
-		<div
-			className={css({
-				display: "flex",
-				flexDirection: "column",
-				justifyContent: "center",
-				alignItems: "center",
-				minHeight: "320px",
-			})}
-		>
+		<div className="flex flex-col justify-center items-center min-h-80">
 			{texts.map((text) => (
 				<div
 					key={text.id}

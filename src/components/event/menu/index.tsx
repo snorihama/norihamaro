@@ -1,4 +1,4 @@
-import { css } from "@panda/css";
+import clsx from "clsx";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { Section } from "@/components/section";
@@ -9,147 +9,42 @@ export const FoodDrinkMenu = () => {
 	});
 	return (
 		<Section id="menu">
-			<div
-				className={css({
-					width: "full",
-					display: "flex",
-					justifyContent: "start",
-					alignItems: "center",
-					paddingTop: "1rem",
-				})}
-			>
+			<div className="w-full flex justify-start items-center pt-4">
 				<Image
 					height={500}
 					width={500}
-					className={css({
-						objectFit: "contain",
-						objectPosition: "center",
-						width: "full",
-						rounded: "3rem",
-					})}
+					className="object-contain object-center w-full rounded-[3rem]"
 					src="/mapo-in-dish.jpg"
 					alt="Mapo Tofu Dish"
 				/>
 			</div>
-			<div
-				className={css({
-					width: "full",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					color: "white",
-					paddingX: "1rem",
-					paddingTop: "1rem",
-				})}
-			>
-				<div
-					className={css({
-						width: "1/2",
-						borderRight: "solid 1px",
-						display: "flex",
-						flexDirection: "column",
-						textAlign: "right",
-						paddingRight: "1rem",
-					})}
-				>
-					<div
-						className={css({
-							animationName: inView ? "slideInRight" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
+			<div className="w-full flex justify-center items-center text-white px-4 pt-4">
+				<div className="w-1/2 border-r flex flex-col text-right pr-4">
+					<div className={clsx(inView && "animate-slide-in-right")}>
 						{"本格麻婆豆腐"}
 					</div>
-					<div
-						className={css({
-							animationName: inView ? "slideInRight" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
+					<div className={clsx(inView && "animate-slide-in-right")}>
 						{"塩にぎり"}
 					</div>
-					<div
-						className={css({
-							animationName: inView ? "slideInRight" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
+					<div className={clsx(inView && "animate-slide-in-right")}>
 						{"ビール"}
 					</div>
 				</div>
-				<div
-					className={css({
-						width: "1/2",
-						display: "flex",
-						flexDirection: "column",
-						paddingLeft: "1rem",
-					})}
-				>
-					<div
-						ref={ref}
-						className={css({
-							animationName: inView ? "slideInLeft" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
-						<span
-							className={css({
-								fontSize: "lg",
-								fontWeight: "extrabold",
-								color: "primary",
-								paddingRight: "0.5rem",
-							})}
-						>
+				<div className="w-1/2 flex flex-col pl-4">
+					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
+						<span className="text-lg font-extrabold text-primary pr-2">
 							{"500"}
 						</span>
 						<span>{"円"}</span>
 					</div>
-					<div
-						ref={ref}
-						className={css({
-							animationName: inView ? "slideInLeft" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
-						<span
-							className={css({
-								fontSize: "lg",
-								fontWeight: "extrabold",
-								color: "primary",
-								paddingRight: "0.5rem",
-							})}
-						>
+					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
+						<span className="text-lg font-extrabold text-primary pr-2">
 							{"200"}
 						</span>
 						<span>{"円"}</span>
 					</div>
-					<div
-						ref={ref}
-						className={css({
-							animationName: inView ? "slideInLeft" : "",
-							animationDuration: "1s",
-							animationDelay: "0s",
-							animationFillMode: "forwards",
-						})}
-					>
-						<span
-							className={css({
-								fontSize: "lg",
-								fontWeight: "extrabold",
-								color: "primary",
-								paddingRight: "0.5rem",
-							})}
-						>
+					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
+						<span className="text-lg font-extrabold text-primary pr-2">
 							{"500"}
 						</span>
 						<span>{"円"}</span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { css } from "@panda/css";
+import clsx from "clsx";
 import { createContext, useContext, useState } from "react";
 
 type MenuProviderProps = {
@@ -56,12 +56,10 @@ export const FreezeWhileMenuOpen = ({
 	const { isOpen } = useMenuContext();
 	return (
 		<div
-			className={css({
-				height: "full",
-				width: "full",
-				// position: isOpen ? "fixed" : "relative",
-				overflow: isOpen ? "hidden" : "scroll",
-			})}
+			className={clsx(
+				"h-full w-full",
+				isOpen ? "overflow-hidden" : "overflow-scroll",
+			)}
 		>
 			{children}
 		</div>

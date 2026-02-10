@@ -1,5 +1,4 @@
 "use client";
-import { css } from "@panda/css";
 import { RiErrorWarningFill } from "@remixicon/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -12,53 +11,19 @@ export const Access = () => {
 
 	return (
 		<Section id="access">
-			<div
-				className={css({
-					width: "full",
-					display: "flex",
-					flexDirection: "column",
-					gap: "1rem",
-				})}
-			>
-				<div
-					className={css({
-						width: "full",
-						padding: "0.5rem",
-					})}
-				>
-					<RiErrorWarningFill
-						className={css({
-							height: "1.5rem",
-							width: "1.5rem",
-							flexShrink: 0,
-							marginRight: "0.25rem",
-							color: "red.500",
-							display: "inline",
-						})}
-					/>
-					<span
-						className={css({
-							color: "amber.200",
-						})}
-					>
+			<div className="w-full flex flex-col gap-4">
+				<div className="w-full p-2">
+					<RiErrorWarningFill className="h-6 w-6 shrink-0 mr-1 text-red-500 inline" />
+					<span className="text-amber-200">
 						{
 							"ビールのご購入にはアルコールパスポートが必要です。お近くの案内所にて無料で発行できますので着用してお越しください。"
 						}
 					</span>
 				</div>
 
-				<div
-					className={css({
-						width: "full",
-						padding: "1rem",
-						rounded: "2xl",
-					})}
-				>
+				<div className="w-full p-4 rounded-2xl">
 					<Image
-						className={css({
-							width: "full",
-							borderRadius: "2xl",
-						})}
+						className="w-full rounded-2xl"
 						alt="Mapo Tofu Stand"
 						height={500}
 						width={500}
@@ -66,13 +31,7 @@ export const Access = () => {
 						onClick={toggle}
 					/>
 				</div>
-				<span
-					className={css({
-						color: "white",
-						fontSize: "sm",
-						textAlign: "center",
-					})}
-				>
+				<span className="text-white text-sm text-center">
 					{"画像をタップすると拡大表示できます"}
 				</span>
 			</div>

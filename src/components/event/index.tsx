@@ -1,5 +1,4 @@
 "use client";
-import { css } from "@panda/css";
 import type { FC } from "react";
 import { useWaitTime } from "@/hooks/waitTime";
 import { Devider } from "../devider";
@@ -17,22 +16,8 @@ import { Tips } from "./tips";
 export const Main: FC = () => {
 	const { wait, error } = useWaitTime();
 	return (
-		<div
-			className={css({
-				width: "full",
-				backgroundColor: "black",
-			})}
-		>
-			<div
-				className={css({
-					width: "full",
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					gap: "2rem",
-					paddingBottom: "calc(10vh)", // for floating area
-				})}
-			>
+		<div className="w-full bg-black">
+			<div className="w-full flex flex-col items-center gap-8 pb-[10vh]">
 				<Hero />
 				<Devider />
 				<Info wait={wait} error={error} />

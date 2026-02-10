@@ -1,4 +1,3 @@
-import { css } from "@panda/css";
 import Image from "next/image";
 import type { FC } from "react";
 import { previewStyles } from "./Preview.recipe";
@@ -9,11 +8,7 @@ const XCloseIcon = () => {
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="currentColor"
-			className={css({
-				width: "1.5rem",
-				height: "1.5rem",
-				color: "white",
-			})}
+			className="w-6 h-6 text-white"
 		>
 			<path
 				fillRule="evenodd"
@@ -44,17 +39,7 @@ export const Preview: FC<{ show: boolean; toggle: () => void }> = ({
 			<button
 				type="button"
 				onClick={toggle}
-				className={css({
-					position: "absolute",
-					top: "1rem",
-					right: "1rem",
-					display: "flex",
-					alignItems: "center",
-					gap: "0.5rem",
-					padding: "0.5rem 1rem",
-					cursor: "pointer",
-					color: "white",
-				})}
+				className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 cursor-pointer text-white"
 			>
 				CLOSE
 				<XCloseIcon />

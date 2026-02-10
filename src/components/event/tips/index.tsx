@@ -1,4 +1,4 @@
-import { css } from "@panda/css";
+import clsx from "clsx";
 import type { FC } from "react";
 import { useInView } from "react-intersection-observer";
 import { Section } from "@/components/section";
@@ -8,27 +8,14 @@ const Q: FC<{ str: string }> = ({ str }) => {
 		threshold: 0.2,
 	});
 	return (
-		<div
-			ref={ref}
-			className={css({
-				width: "3/4",
-				alignSelf: "flex-end",
-			})}
-		>
+		<div ref={ref} className="w-3/4 self-end">
 			<div
-				className={css({
-					width: "full",
-					height: "full",
-					padding: "0.5rem",
-					color: inView ? "white" : "black",
-					textAlign: "left",
-					rounded: "lg",
-					backgroundColor: inView ? "primary" : "transparent",
-					animationName: inView ? "slideInRight" : "",
-					animationDuration: "1s",
-					animationDelay: "0s",
-					animationFillMode: "forwards",
-				})}
+				className={clsx(
+					"w-full h-full p-2 text-left rounded-lg",
+					inView
+						? "text-white bg-primary animate-slide-in-right"
+						: "text-black bg-transparent",
+				)}
 			>
 				{str}
 			</div>
@@ -41,27 +28,12 @@ const A: FC<{ str: string }> = ({ str }) => {
 		threshold: 0.2,
 	});
 	return (
-		<div
-			ref={ref}
-			className={css({
-				width: "full",
-				alignSelf: "flex-start",
-			})}
-		>
+		<div ref={ref} className="w-full self-start">
 			<div
-				className={css({
-					width: "full",
-					height: "full",
-					padding: "0.5rem",
-					color: inView ? "white" : "black",
-					textAlign: "left",
-					rounded: "lg",
-					animationName: inView ? "slideInLeft" : "",
-					animationDuration: "1s",
-					animationDelay: "0s",
-					animationFillMode: "forwards",
-					whiteSpace: "pre-wrap",
-				})}
+				className={clsx(
+					"w-full h-full p-2 text-left rounded-lg whitespace-pre-wrap",
+					inView ? "text-white animate-slide-in-left" : "text-black",
+				)}
 			>
 				{str}
 			</div>
@@ -121,7 +93,7 @@ export const Tips = () => {
 				},
 				{
 					id: 8,
-					text: "いくつものレシピを試し、食材を何種類も食べ比べ、ようやく辿り着いた“乘濵楼の味”。10種類以上の調味料が肉や豆腐と絡まり、辛さの中に幾重にも旨みと香りが広がる。食べてきた数々の名店の味にも劣らない、究極の一皿です。",
+					text: "いくつものレシピを試し、食材を何種類も食べ比べ、ようやく辿り着いた\u201c乘濵楼の味\u201d。10種類以上の調味料が肉や豆腐と絡まり、辛さの中に幾重にも旨みと香りが広がる。食べてきた数々の名店の味にも劣らない、究極の一皿です。",
 				},
 			],
 		},
@@ -235,30 +207,10 @@ export const Tips = () => {
 	];
 	return (
 		<Section id="tips">
-			<div
-				className={css({
-					width: "full",
-				})}
-			>
-				<div
-					className={css({
-						width: "full",
-						display: "flex",
-						flexDirection: "column",
-						gap: "1rem",
-						paddingTop: "1rem",
-					})}
-				>
+			<div className="w-full">
+				<div className="w-full flex flex-col gap-4 pt-4">
 					{qa.map((item) => (
-						<div
-							className={css({
-								width: "full",
-								display: "flex",
-								flexDirection: "column",
-								gap: "1rem",
-							})}
-							key={item.id}
-						>
+						<div className="w-full flex flex-col gap-4" key={item.id}>
 							{item.q.map((question) => (
 								<Q key={question.id} str={question.text} />
 							))}

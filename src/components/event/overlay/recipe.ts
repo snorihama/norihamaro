@@ -1,18 +1,2 @@
-import { css } from "@panda/css";
-
-export const overlayStyles = css({
-	width: "full",
-	height: "100lvh",
-	display: "flex",
-	alignItems: "center",
-	justifyContent: "center",
-	position: "fixed",
-	inset: 0,
-	background: "black",
-	opacity: 1,
-	zIndex: 1000,
-	animationName: "fadeOut",
-	animationDuration: "500ms",
-	animationTimingFunction: "ease",
-	animationFillMode: "forwards",
-});
+export const overlayStyles =
+	"w-full h-[100lvh] flex items-center justify-center fixed inset-0 bg-black z-[1000] animate-fade-out [animation-fill-mode:forwards]";

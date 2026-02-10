@@ -1,5 +1,5 @@
-import { css } from "@panda/css";
 import { RiInstagramLine, RiLinksLine, RiTwitterXLine } from "@remixicon/react";
+import clsx from "clsx";
 import Link from "next/link";
 import type React from "react";
 import type { FC } from "react";
@@ -13,30 +13,9 @@ type SubSectionProps = {
 };
 const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 	return (
-		<div
-			className={css({
-				width: "full",
-				textAlign: "left",
-			})}
-		>
-			<div
-				className={css({
-					width: "full",
-					paddingX: "2rem",
-					paddingBottom: "0.25rem",
-				})}
-			>
-				<p
-					className={css({
-						fontWeight: "extrabold",
-						fontSize: "lg",
-						color: "primary",
-						borderBottom: "solid 1px",
-						borderColor: "primary",
-						textAlign: "center",
-						paddingBottom: "0.25rem",
-					})}
-				>
+		<div className="w-full text-left">
+			<div className="w-full px-8 pb-1">
+				<p className="font-extrabold text-lg text-primary border-b border-primary text-center pb-1">
 					{title}
 				</p>
 			</div>
@@ -45,27 +24,19 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 	);
 };
 
-// AnimatedSection: animates children in when in view
 const AnimatedSection = ({
-	children,
-	delay = 0,
+	children
 }: {
 	children: React.ReactNode;
-	delay?: number;
 }) => {
 	const { ref, inView } = useInView({ threshold: 0.2 });
 	return (
 		<div
 			ref={ref}
-			className={css({
-				opacity: inView ? 1 : 0,
-				animationName: inView ? "fadeInUp" : "none",
-				animationDuration: "0.7s",
-				animationTimingFunction: "cubic-bezier(.4,0,.2,1)",
-				animationDelay: `${delay}ms`,
-				animationFillMode: "both",
-				willChange: "opacity, transform",
-			})}
+			className={clsx(
+				"will-change-[opacity,transform]",
+				inView ? "animate-fade-in-up" : "opacity-0",
+			)}
 		>
 			{children}
 		</div>
@@ -80,26 +51,11 @@ export const Info = ({
 }) => {
 	return (
 		<Section id="info">
-			<div
-				className={css({
-					width: "full",
-					display: "flex",
-					flexDirection: "column",
-					gap: "1rem",
-					color: "white",
-					textAlign: "center",
-				})}
-			>
-				<AnimatedSection delay={1000}>
+			<div className="w-full flex flex-col gap-4 text-white text-center">
+				<AnimatedSection>
 					<p>
 						{"昨年の五月祭で 1000 食超を提供し大きな反響を呼んだ"}
-						<span
-							className={css({
-								fontWeight: "900",
-							})}
-						>
-							{"「本格麻婆豆腐 乘濵楼」"}
-						</span>
+						<span className="font-black">{"「本格麻婆豆腐 乘濵楼」"}</span>
 						{"が今年の五月祭に帰ってきます！！"}
 						<br />
 						{
@@ -108,15 +64,9 @@ export const Info = ({
 					</p>
 				</AnimatedSection>
 
-				<AnimatedSection delay={1500}>
+				<AnimatedSection>
 					<SubSection title="開催日程">
-						<div
-							className={css({
-								width: "full",
-								textAlign: "center",
-								color: "white",
-							})}
-						>
+						<div className="w-full text-center text-white">
 							{"第98回五月祭"}
 							<br />
 							{"2025年5月24日(土) - 25日(日)"}
@@ -124,41 +74,17 @@ export const Info = ({
 					</SubSection>
 				</AnimatedSection>
 
-				<AnimatedSection delay={2500}>
+				<AnimatedSection>
 					<SubSection title="開催場所">
 						<button
 							type="button"
-							className={css({
-								textAlign: "center",
-								width: "full",
-								display: "flex",
-								flexDirection: "column",
-								alignItems: "center",
-								justifyContent: "center",
-								color: "white",
-							})}
+							className="text-center w-full flex flex-col items-center justify-center text-white"
 							onClick={() => scrollToSection("access")}
 						>
 							<div>{"東京大学本郷キャンパス"}</div>
 							<div>
-								<span
-									className={css({
-										color: "white",
-										textDecoration: "underline",
-										textDecorationColor: "white",
-										textDecorationThickness: "0.05rem",
-									})}
-								>
-									<RiLinksLine
-										className={css({
-											display: "inline-block",
-											height: "1rem",
-											width: "1rem",
-											margin: "0 auto",
-											color: "white",
-											textAlign: "center",
-										})}
-									/>
+								<span className="text-white underline decoration-white decoration-[0.05rem]">
+									<RiLinksLine className="inline-block h-4 w-4 mx-auto text-white text-center" />
 									{"工学部広場 B3, 4 (スターバックス 東京大学工学部店前)"}
 								</span>
 							</div>
@@ -166,24 +92,11 @@ export const Info = ({
 					</SubSection>
 				</AnimatedSection>
 
-				<AnimatedSection delay={3500}>
+				<AnimatedSection>
 					<SubSection title="推定待ち時間">
-						<div
-							className={css({
-								width: "full",
-								textAlign: "center",
-								color: "white",
-							})}
-						>
+						<div className="w-full text-center text-white">
 							約
-							<span
-								className={css({
-									fontWeight: "900",
-									color: "primary",
-									fontSize: "xl",
-									paddingX: "0.25rem",
-								})}
-							>
+							<span className="font-black text-primary text-xl px-1">
 								{wait ? `${wait}` : "..."}
 							</span>
 							分
@@ -191,33 +104,12 @@ export const Info = ({
 					</SubSection>
 				</AnimatedSection>
 
-				<AnimatedSection delay={4500}>
+				<AnimatedSection>
 					<SubSection title="五月祭総選挙">
-						<div
-							className={css({
-								display: "flex",
-								flexDirection: "column",
-								alignItems: "center",
-								gap: "0.5rem",
-								width: "full",
-								textAlign: "center",
-							})}
-						>
+						<div className="flex flex-col items-center gap-2 w-full text-center">
 							乘濵楼へのご投票よろしくお願いいたします。
 							<Link href="https://gogatsusai.jp/98/visitor/project/165">
-								<span
-									className={css({
-										position: "relative",
-										display: "inline-flex",
-										alignItems: "center",
-										color: "white",
-										cursor: "pointer",
-										transition: "color 0.2s",
-										textDecoration: "underline",
-										textDecorationColor: "white",
-										textDecorationThickness: "0.05rem",
-									})}
-								>
+								<span className="relative inline-flex items-center text-white cursor-pointer transition-colors duration-200 underline decoration-white decoration-[0.05rem]">
 									<RiLinksLine
 										style={{
 											display: "inline-block",
@@ -234,32 +126,12 @@ export const Info = ({
 					</SubSection>
 				</AnimatedSection>
 
-				<AnimatedSection delay={5500}>
+				<AnimatedSection>
 					<SubSection title="アンケート">
 						<Link href="https://forms.gle/4P2rEoSPLqjzYC4y5">
-							<div
-								className={css({
-									width: "full",
-									textAlign: "center",
-								})}
-							>
-								<span
-									className={css({
-										color: "white",
-										textDecoration: "underline",
-										textDecorationColor: "white",
-										textDecorationThickness: "0.05rem",
-									})}
-								>
-									<RiLinksLine
-										className={css({
-											display: "inline-block",
-											height: "1rem",
-											width: "1rem",
-											margin: "0 auto",
-											color: "white",
-										})}
-									/>
+							<div className="w-full text-center">
+								<span className="text-white underline decoration-white decoration-[0.05rem]">
+									<RiLinksLine className="inline-block h-4 w-4 mx-auto text-white" />
 									{"ご意見・ご感想をお聞かせください"}
 								</span>
 							</div>
@@ -267,34 +139,14 @@ export const Info = ({
 					</SubSection>
 				</AnimatedSection>
 
-				<AnimatedSection delay={6500}>
+				<AnimatedSection>
 					<SubSection title="SNS">
-						<div
-							className={css({
-								width: "full",
-								textAlign: "center",
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "center",
-								justifyContent: "center",
-								gap: "1rem",
-							})}
-						>
+						<div className="w-full text-center flex flex-row items-center justify-center gap-4">
 							<Link href="https://www.instagram.com/norihamaro">
-								<RiInstagramLine
-									className={css({
-										width: "1.5rem",
-										height: "1.5rem",
-									})}
-								/>
+								<RiInstagramLine className="w-6 h-6" />
 							</Link>
 							<Link href="https://x.com/Norihamaro">
-								<RiTwitterXLine
-									className={css({
-										width: "1.5rem",
-										height: "1.5rem",
-									})}
-								/>
+								<RiTwitterXLine className="w-6 h-6" />
 							</Link>
 						</div>
 					</SubSection>

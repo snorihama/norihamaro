@@ -1,129 +1,30 @@
-import { css } from "@panda/css";
-
 export const RightBottomDecoration = () => {
 	return (
 		// pair: relative && absolute
-		<div
-			className={css({
-				width: "full",
-				position: "relative",
-			})}
-		>
-			<div
-				className={css({
-					position: "absolute",
-					right: "0",
-					bottom: "-4rem",
-					marginRight: "0.25rem",
-					marginBottom: "0.25rem",
-				})}
-			>
+		<div className="w-full relative">
+			<div className="absolute right-0 -bottom-16 mr-1 mb-1">
 				{/* 1st row */}
-				<div className={css({ display: "flex", justifyContent: "right" })}>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.5rem",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
+				<div className="flex justify-end">
+					<div className="w-[0.25rem] h-[0.5rem] border-r border-beige"></div>
 				</div>
 				{/* 2nd row */}
-				<div className={css({ display: "flex", justifyContent: "right" })}>
-					<div
-						className={css({
-							width: "0.3rem",
-							height: "0.3rem",
-							borderRight: "solid 1px",
-							borderBottom: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.3rem",
-							borderY: "solid 1px",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.3rem",
-							borderBottom: "solid 1px",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
+				<div className="flex justify-end">
+					<div className="w-[0.3rem] h-[0.3rem] border-r border-b border-beige"></div>
+					<div className="w-[0.25rem] h-[0.3rem] border-y border-r border-beige"></div>
+					<div className="w-[0.25rem] h-[0.3rem] border-b border-r border-beige"></div>
 				</div>
 				{/* 3rd row */}
-				<div className={css({ display: "flex", justifyContent: "right" })}>
-					<div
-						className={css({
-							width: "0.3rem",
-							height: "0.25rem",
-							borderX: "solid 1px",
-							borderBottom: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.25rem",
-							borderBottom: "solid 1px",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.25rem",
-							borderBottom: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
+				<div className="flex justify-end">
+					<div className="w-[0.3rem] h-[0.25rem] border-x border-b border-beige"></div>
+					<div className="w-[0.25rem] h-[0.25rem] border-b border-r border-beige"></div>
+					<div className="w-[0.25rem] h-[0.25rem] border-b border-beige"></div>
 				</div>
 				{/* 4nd row */}
-				<div className={css({ display: "flex", justifyContent: "right" })}>
-					<div
-						className={css({
-							width: "1.5rem",
-							height: "0.25rem",
-							borderBottom: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.25rem",
-							borderBottom: "solid 1px",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.25rem",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
-					<div
-						className={css({
-							width: "0.25rem",
-							height: "0.25rem",
-							borderBottom: "solid 1px",
-							borderRight: "solid 1px",
-							borderColor: "beige",
-						})}
-					></div>
+				<div className="flex justify-end">
+					<div className="w-[1.5rem] h-[0.25rem] border-b border-beige"></div>
+					<div className="w-[0.25rem] h-[0.25rem] border-b border-r border-beige"></div>
+					<div className="w-[0.25rem] h-[0.25rem] border-r border-beige"></div>
+					<div className="w-[0.25rem] h-[0.25rem] border-b border-r border-beige"></div>
 				</div>
 			</div>
 		</div>

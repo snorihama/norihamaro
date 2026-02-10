@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
 import "./globals.css";
-import { css } from "@panda/css";
 import { FreezeWhileMenuOpen, MenuProvider } from "@/context/provider";
 
 const hinaMincho = Hina_Mincho({
@@ -51,32 +50,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html
-			lang="en"
-			className={css({
-				scrollBehavior: "smooth",
-				backgroundColor: "black",
-			})}
-		>
-			<body
-				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-				className={`${hinaMincho.variable} ${zenOldMincho.variable}`}
-			>
-				<main
-					className={css({
-						fontFamily: "zenOldMincho", // base font in this website.
-					})}
-				>
+		<html lang="en" className="scroll-smooth bg-black">
+			<body className={`${hinaMincho.variable} ${zenOldMincho.variable}`}>
+				<main className={zenOldMincho.className}>
 					<MenuProvider>
 						<FreezeWhileMenuOpen>
-							{/* <Header /> */}
-							<div
-								className={css({
-									minHeight: "100lvh",
-								})}
-							>
-								{children}
-							</div>
+							<div className="min-h-[100lvh]">{children}</div>
 						</FreezeWhileMenuOpen>
 					</MenuProvider>
 				</main>

@@ -1,4 +1,3 @@
-import { css } from "@panda/css";
 import Image from "next/image";
 import type { FC } from "react";
 import { exhaustiveMatchingGuard } from "@/types/guard";
@@ -46,59 +45,21 @@ const idToLabel = (id: Tags): string | typeof HeaderImg => {
 export const Section: FC<Props> = ({ id, className, children }) => {
 	const label = idToLabel(id);
 	return (
-		<div
-			id={id}
-			className={css({
-				width: "full",
-				paddingX: "2rem",
-			})}
-		>
-			<div
-				className={css({
-					width: "2/3",
-					marginX: "auto",
-				})}
-			>
+		<div id={id} className="w-full px-8">
+			<div className="w-2/3 mx-auto">
 				<LeftDecoration />
 				<LeftBottomDecoration />
 				<RightDecoration />
 				<RightBottomDecoration />
-				<div
-					className={css({
-						width: "full",
-						height: "4rem",
-						padding: "0.5rem",
-						backgroundColor: "black",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						fontWeight: "bold",
-						fontSize: "2xl",
-						color: "beige",
-						textAlign: "center",
-					})}
-				>
+				<div className="w-full h-16 p-2 bg-black flex items-center justify-center font-bold text-2xl text-beige text-center">
 					{label === HeaderImg ? (
-						<div
-							className={css({
-								width: "full",
-								height: "full",
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-							})}
-						>
+						<div className="w-full h-full flex items-center justify-center">
 							<Image
 								src="/header-mini.png"
 								alt="Norihama-lou icon"
 								width={1000}
 								height={1000}
-								className={css({
-									height: "2rem",
-									width: "auto",
-									objectFit: "contain",
-									objectPosition: "center",
-								})}
+								className="h-8 w-auto object-contain object-center"
 							/>
 						</div>
 					) : (
@@ -107,16 +68,7 @@ export const Section: FC<Props> = ({ id, className, children }) => {
 				</div>
 			</div>
 
-			<div
-				className={css({
-					width: "full",
-					padding: "1rem", // "2rem",
-					backgroundColor: "black",
-					borderBottomRadius: "lg",
-				})}
-			>
-				{children}
-			</div>
+			<div className="w-full p-4 bg-black rounded-b-lg">{children}</div>
 		</div>
 	);
 };
