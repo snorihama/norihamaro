@@ -1,6 +1,6 @@
 import { RiExternalLinkLine } from "@remixicon/react";
 import Link from "next/link";
-import CountUp from "@/components/blocks/TextAnimations/CountUp/CountUp";
+import CountUp from "@/components/ui/count-up/CountUp";
 import { useHeroAreaContext } from "@/context/provider";
 
 export const FloatingButton = ({

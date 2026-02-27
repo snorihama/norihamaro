@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
 
 export const FoodDrinkMenu = () => {
 	const { ref, inView } = useInView({

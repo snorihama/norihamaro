@@ -1,7 +1,7 @@
 "use client";
 import type { FC } from "react";
 import { useWaitTime } from "@/hooks/waitTime";
-import { Devider } from "../devider";
+import { Devider } from "../ui/devider";
 import { AboutUs } from "./about-us";
 import { Access } from "./access";
 import { Blog } from "./blog";

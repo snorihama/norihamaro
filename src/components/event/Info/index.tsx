@@ -4,7 +4,7 @@ import Link from "next/link";
 import type React from "react";
 import type { FC } from "react";
 import { useInView } from "react-intersection-observer";
-import { Section } from "../../section";
+import { Section } from "../../ui/section";
 import { scrollToSection } from "../scroll-plugin";
 
 type SubSectionProps = {
@@ -24,11 +24,7 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 	);
 };
 
-const AnimatedSection = ({
-	children
-}: {
-	children: React.ReactNode;
-}) => {
+const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
 	const { ref, inView } = useInView({ threshold: 0.2 });
 	return (
 		<div

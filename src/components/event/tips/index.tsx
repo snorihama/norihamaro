@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
 
 const Q: FC<{ str: string }> = ({ str }) => {
 	const { ref, inView } = useInView({

@@ -16,15 +16,11 @@
 		"check:fix": "npx @biomejs/biome check --write"
 	},
 	"dependencies": {
-		"@heroui/button": "^2.2.30",
-		"@heroui/system": "^2.4.26",
-		"@heroui/theme": "^2.4.26",
 		"@remixicon/react": "^4.6.0",
 		"@supabase/supabase-js": "^2.49.4",
 		"clsx": "^2.1.1",
 		"framer-motion": "^12.34.0",
-		"lucide-react": "^0.483.0",
-		"motion": "^12.5.0",
+		"gsap": "^3.14.2",
 		"next": "^16.1.4",
 		"postcss": "^8.5.3",
 		"react": "^19.2.4",

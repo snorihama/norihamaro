@@ -2,7 +2,7 @@
 import { RiErrorWarningFill } from "@remixicon/react";
 import Image from "next/image";
 import { useState } from "react";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
 import { Preview } from "./Preview";
 
 export const Access = () => {

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { Section } from "@/components/section";
+import { Section } from "@/components/ui/section";
 
 const SubSection = ({ str }: { str: string }) => {
 	const { ref, inView } = useInView({

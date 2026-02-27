@@ -2,9 +2,7 @@ import Image from "next/image";
 
 export const Hero = () => {
 	return (
-		<section
-			className="w-screen min-h-lvh h-lvh bg-black flex flex-col md:flex-row relative"
-		>
+		<section className="w-screen min-h-lvh h-lvh bg-black flex flex-col md:flex-row relative">
 			{/* Left (Logo & Text) */}
 			<div className="h-lvh flex flex-col gap-10 justify-center items-center w-screen md:w-[50vw] flex-1 z-10 px-20 max-w-screen md:max-w-[48vw]">
 				{/* Logo */}
@@ -40,8 +38,14 @@ export const Hero = () => {
 						<br />
 						{"高級中華にも引けをとらない本気の味をご賞味あれ。"}
 					</p>
-                    {/* LINE QR code */}
-                    <Image src="/mapo-in-pan-square.jpg" alt="LINE QR code" width={150} height={150} className="mt-4 self-center"/>
+					{/* LINE QR code */}
+					<Image
+						src="/mapo-in-pan-square.jpg"
+						alt="LINE QR code"
+						width={150}
+						height={150}
+						className="mt-4 self-center"
+					/>
 				</div>
 			</div>
 			{/* Right (Image) */}

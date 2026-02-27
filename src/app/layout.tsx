@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
 import "./globals.css";
-import { FreezeWhileMenuOpen, MenuProvider } from "@/context/provider";
 
 const hinaMincho = Hina_Mincho({
 	variable: "--fonts-hina-mincho",
@@ -53,11 +52,7 @@ export default function RootLayout({
 		<html lang="en" className="scroll-smooth bg-black">
 			<body className={`${hinaMincho.variable} ${zenOldMincho.variable}`}>
 				<main className={zenOldMincho.className}>
-					<MenuProvider>
-						<FreezeWhileMenuOpen>
-							<div className="min-h-[100lvh]">{children}</div>
-						</FreezeWhileMenuOpen>
-					</MenuProvider>
+					<div className="w-full min-h-screen">{children}</div>
 				</main>
 			</body>
 		</html>
