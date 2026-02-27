@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"prepare": "panda codegen",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
@@ -12,7 +11,7 @@
 		"format:fix": "npx @biomejs/biome format --write",
 		"lint": "npx @biomejs/biome lint",
 		"lint:fix": "npx @biomejs/biome lint --write",
-		"lint:fix:unsafe": "npx @biomejs/biome lint --write --unsafe",
+		"lint:fix-unsafe": "npx @biomejs/biome lint --write --unsafe",
 		"check": "npx @biomejs/biome check",
 		"check:fix": "npx @biomejs/biome check --write"
 	},
@@ -20,23 +19,23 @@
 		"@remixicon/react": "^4.6.0",
 		"@supabase/supabase-js": "^2.49.4",
 		"clsx": "^2.1.1",
-		"framer-motion": "^11.18.2",
-		"lucide-react": "^0.483.0",
-		"motion": "^12.5.0",
+		"framer-motion": "^12.34.0",
+		"gsap": "^3.14.2",
 		"next": "^16.1.4",
 		"postcss": "^8.5.3",
-		"react": "^19.2.3",
-		"react-dom": "^19.2.3",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
 		"react-intersection-observer": "^9.16.0",
 		"twitter-api-sdk": "^1.2.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
-		"@pandacss/dev": "^0.53.3",
+		"@tailwindcss/postcss": "^4.1.18",
 		"@types/node": "^20.19.30",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"knip": "^5.82.1",
+		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3"
 	}
 }

@@ -1,5 +1,2 @@
-import { Main } from "@/components/Home";
-
-export default function Home() {
-	return <Main />;
-}
+import { Home } from "@/components/home";
+export default Home;
