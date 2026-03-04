@@ -19,8 +19,8 @@ export const AnimatedText = ({
 	);
 
 	useEffect(() => {
-		texts.forEach((_, index) => {
-			const timer = setTimeout(
+		const timers = texts.map((_, index) =>
+			setTimeout(
 				() => {
 					setVisibleIndices((prev) => {
 						const newState = [...prev];
@@ -29,10 +29,14 @@ export const AnimatedText = ({
 					});
 				},
 				delay + index * span,
-			);
+			),
+		);
 
-			return () => clearTimeout(timer);
-		});
+		return () => {
+			for (const timer of timers) {
+				clearTimeout(timer);
+			}
+		};
 	}, [texts, delay, span]);
 
 	return (

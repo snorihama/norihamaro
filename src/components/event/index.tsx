@@ -12,29 +12,32 @@ import { FoodDrinkMenu } from "./menu";
 import { Overlay } from "./overlay";
 import { InitScrollPlugin } from "./scroll-plugin";
 import { Tips } from "./tips";
+import { HeroAreaProvider } from "@/context/provider";
 
 export const Main: FC = () => {
 	const { wait, error } = useWaitTime();
 	return (
-		<div className="w-full bg-black">
-			<div className="w-full flex flex-col items-center gap-8 pb-[10vh]">
-				<Hero />
-				<Devider />
-				<Info wait={wait} error={error} />
-				<Devider />
-				<FoodDrinkMenu />
-				<Devider />
-				<Access />
-				<Devider />
-				<AboutUs />
-				<Devider />
-				<Blog />
-				<Devider />
-				<Tips />
+		<HeroAreaProvider>
+			<div className="w-full bg-black">
+				<div className="w-full flex flex-col items-center gap-8 pb-[10vh]">
+					<Hero />
+					<Devider />
+					<Info wait={wait} error={error} />
+					<Devider />
+					<FoodDrinkMenu />
+					<Devider />
+					<Access />
+					<Devider />
+					<AboutUs />
+					<Devider />
+					<Blog />
+					<Devider />
+					<Tips />
+				</div>
+				<FloatingButton wait={wait} error={error} />
+				<InitScrollPlugin />
+				<Overlay />
 			</div>
-			<FloatingButton wait={wait} error={error} />
-			<InitScrollPlugin />
-			<Overlay />
-		</div>
+		</HeroAreaProvider>
 	);
 };

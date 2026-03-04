@@ -7,12 +7,12 @@ const twitterApiAuthCode = process.env.TWITTER_API_AUTH_CODE;
 
 type PostTweetResponse = {
 	name: "PostTweetResponse";
-	data: any;
+	data: unknown;
 };
 
 type Err = {
 	name: "Err";
-	error: any;
+	error: unknown;
 };
 
 const authClient = new auth.OAuth2User({

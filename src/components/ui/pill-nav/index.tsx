@@ -1,8 +1,10 @@
 // Based on "https://www.reactbits.dev/components/pill-nav"
+
+import { gsap } from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { gsap } from "gsap";
 import "./PillNav.css";
 
 type Props = {
@@ -283,7 +285,7 @@ const PillNav = ({
 							logoRef.current = el;
 						}}
 					>
-						<img src={logo} alt={logoAlt} />
+						<Image src={logo} alt={logoAlt} width={40} height={40} />
 					</Link>
 				) : (
 					<a
@@ -296,7 +298,7 @@ const PillNav = ({
 							logoRef.current = el;
 						}}
 					>
-						<img src={logo} alt={logoAlt} />
+						<Image src={logo} alt={logoAlt} width={40} height={40} />
 					</a>
 				)}
 
@@ -357,6 +359,7 @@ const PillNav = ({
 				</div>
 
 				<button
+					type="button"
 					className="mobile-menu-button mobile-only"
 					onClick={toggleMobileMenu}
 					aria-label="Toggle menu"
