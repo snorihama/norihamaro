@@ -1,0 +1,5 @@
+.vertical-text {
+	writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-rl;
+}
