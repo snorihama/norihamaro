@@ -7,24 +7,29 @@ export const Home = () => {
 	return (
 		<div className="pt-4 bg-primary">
 			{/* fixed overlay */}
-			<div className="fixed inset-0 w-full h-full bg-primary">
-				<div className="bg-transparent fixed inset-0 w-full flex flex-row justify-center items-start gap-3 z-50 top-1/16 text-2xl text-white">
-					<VerticalText text="あなたはまだ知らない。" />
-					<div className="flex flex-col w-fit justify-center items-center gap-0">
-						<VerticalText text="麻婆豆腐" className="text-5xl" />
-						<VerticalText text="を" />
+			<div className="fixed inset-0 w-full h-full bg-primary flex flex-col">
+				{/* メインエリア: 小画面では重ね、lg以上では横並び */}
+				<div className="flex-1 relative flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-12">
+					{/* 縦書きテキスト */}
+					<div className="absolute lg:relative lg:top-auto lg:left-auto inset-x-0 top-1/16 flex flex-row justify-center items-start gap-3 z-10 text-2xl text-white lg:flex-shrink-0">
+						<VerticalText text="あなたはまだ知らない。"  className="lg:text-4xl"/>
+						<div className="flex flex-col w-fit justify-center items-center gap-0">
+							<VerticalText text="麻婆豆腐" className="text-5xl lg:text-7xl" />
+							<VerticalText text="を" className="lg:text-4xl" />
+						</div>
+						<VerticalText text="本当に美味しい" className="lg:text-4xl" />
 					</div>
-					<VerticalText text="本当に美味しい" />
-				</div>
 
-				<div className="w-full px-8 bottom-2/5 absolute flex flex-row justify-end transform translate-y-1/2">
-					<Image
-						height={1429}
-						width={1429}
-						src="/club-icon-square.png"
-						alt="club icon"
-						className="rounded-full w-full"
-					/>
+					{/* アイコン画像 */}
+					<div className="absolute lg:relative lg:bottom-auto lg:right-auto lg:translate-y-0 lg:w-3/4 lg:max-w-[800px] inset-x-0 bottom-2/5 flex flex-row justify-end px-8 transform translate-y-1/2 lg:flex-shrink-0">
+						<Image
+							height={1429}
+							width={1429}
+							src="/club-icon-square.png"
+							alt="club icon"
+							className="rounded-full w-full lg:w-full"
+						/>
+					</div>
 				</div>
 
 				{/* 1655 428 */}
