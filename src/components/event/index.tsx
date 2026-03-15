@@ -1,5 +1,6 @@
 "use client";
 import type { FC } from "react";
+import { HeroAreaProvider } from "@/context/provider";
 import { useWaitTime } from "@/hooks/waitTime";
 import { Devider } from "../ui/devider";
 import { AboutUs } from "./about-us";
@@ -12,7 +13,6 @@ import { FoodDrinkMenu } from "./menu";
 import { Overlay } from "./overlay";
 import { InitScrollPlugin } from "./scroll-plugin";
 import { Tips } from "./tips";
-import { HeroAreaProvider } from "@/context/provider";
 
 export const Main: FC = () => {
 	const { wait, error } = useWaitTime();
