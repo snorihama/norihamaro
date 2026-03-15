@@ -1,4 +1,4 @@
-import { RiExternalLinkLine, RiTrophyLine } from "@remixicon/react";
+import { RiExternalLinkLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 import { VerticalText } from "../ui/vertical-text";
@@ -111,13 +111,7 @@ export const Home = () => {
 						</Link>
 					</Row>
 					<IndentRow tabs={1}>
-						<RiTrophyLine
-							className="h-6 w-6"
-							style={{
-								color: "yellow",
-							}}
-						/>
-						<span className="text-base">五月祭総選挙模擬店部門第一位</span>
+						<span className="text-base">🏆 五月祭総選挙模擬店部門第一位</span>
 					</IndentRow>
 				</div>
 
