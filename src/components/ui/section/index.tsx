@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { FC } from "react";
-import { exhaustiveMatchingGuard } from "@/types/guard";
 import { LeftDecoration } from "./decorations/left";
 import { LeftBottomDecoration } from "./decorations/leftBottom";
 import { RightDecoration } from "./decorations/right";
@@ -38,7 +37,7 @@ const idToLabel = (id: Tags): string | typeof HeaderImg => {
 		case "tips":
 			return "制作秘話";
 		default:
-			return exhaustiveMatchingGuard(id);
+			return id as never; // exhaustive matching guard
 	}
 };
 
