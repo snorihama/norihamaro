@@ -62,7 +62,7 @@ export const Home = () => {
 			{/* Detailed Information */}
 			<div className="h-[100lvh] min-h-[100lvh] flex flex-col items-center justify-start bg-primary p-12 gap-4">
 				<Section text="試食会" />
-				<div className="w-full sm:w-1/3 flex flex-col items-start justify-start gap-1">
+				<div className="w-full lg:w-1/3 flex flex-col items-start justify-start gap-1">
 					<p className="text-white text-lg">日程</p>
 					<Row>
 						<div className="flex items-end gap-2">
@@ -90,18 +90,18 @@ export const Home = () => {
 					</Row>
 				</div>
 
-				<div className="w-full sm:w-1/3 flex items-center gap-2">
+				<div className="w-full lg:w-1/3 flex items-center gap-2">
 					<p className="text-white text-lg">開催場所</p>
 					<p className="text-white text-2xl">江戸川橋</p>
 				</div>
 
-				<div className="w-full sm:w-1/3 flex items-center gap-2">
+				<div className="w-full lg:w-1/3 flex items-center gap-2">
 					<p className="text-white text-lg">参加費</p>
 					<p className="text-white text-2xl">500円</p>
 				</div>
 
 				<Section text="出店イベント" />
-				<div className="text-white w-full sm:w-1/3 space-y-3">
+				<div className="text-white w-full lg:w-1/3 space-y-3">
 					<Row>
 						<Link href="/events/2025" className="group flex items-center gap-1">
 							<span className="text-xl underline decoration-white/50 group-hover:decoration-white">
@@ -116,7 +116,7 @@ export const Home = () => {
 				</div>
 
 				<Section text="参加方法" />
-				<div className="w-full flex items-start gap-2 sm:w-1/3">
+				<div className="w-full flex items-start gap-2 lg:w-1/3">
 					<p className="text-white">
 						試食会の詳細・申し込みは
 						{/* 乘濱楼公式LINE */}
