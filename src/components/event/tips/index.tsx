@@ -11,10 +11,11 @@ const Q: FC<{ str: string }> = ({ str }) => {
 		<div ref={ref} className="w-3/4 self-end">
 			<div
 				className={clsx(
-					"w-full h-full p-2 text-left rounded-lg",
-					inView
-						? "text-white bg-primary animate-slide-in-right"
-						: "text-black bg-transparent",
+					"w-full h-full p-2 text-left rounded-lg text-white bg-primary",
+					// inView
+					// 	? "text-white bg-primary animate-slide-in-right"
+					// 	: "text-black bg-transparent",
+					inView && "animate-fade-in-up",
 				)}
 			>
 				{str}
@@ -31,8 +32,9 @@ const A: FC<{ str: string }> = ({ str }) => {
 		<div ref={ref} className="w-full self-start">
 			<div
 				className={clsx(
-					"w-full h-full p-2 text-left rounded-lg whitespace-pre-wrap",
-					inView ? "text-white animate-slide-in-left" : "text-black",
+					"w-full h-full p-2 text-left rounded-lg whitespace-pre-wrap text-white",
+					// inView ? "text-white animate-slide-in-left" : "text-black",
+					inView && "animate-fade-in-up",
 				)}
 			>
 				{str}

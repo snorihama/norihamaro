@@ -44,8 +44,8 @@ const idToLabel = (id: Tags): string | typeof HeaderImg => {
 export const Section: FC<Props> = ({ id, children }) => {
 	const label = idToLabel(id);
 	return (
-		<div id={id} className="w-full px-8">
-			<div className="w-2/3 mx-auto">
+		<div id={id} className="w-full px-8 flex flex-col items-center">
+			<div className="w-2/3 mx-auto lg:w-1/3">
 				<LeftDecoration />
 				<LeftBottomDecoration />
 				<RightDecoration />
@@ -67,7 +67,9 @@ export const Section: FC<Props> = ({ id, children }) => {
 				</div>
 			</div>
 
-			<div className="w-full p-4 bg-black rounded-b-lg">{children}</div>
+			<div className="w-full p-4 bg-black rounded-b-lg lg:w-1/2">
+				{children}
+			</div>
 		</div>
 	);
 };
