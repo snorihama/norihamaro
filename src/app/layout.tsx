@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
 import "./globals.css";
-import { css } from "@panda/css";
-import { MenuProvider, FreezeWhileMenuOpen } from "@/context/provider";
 
 const hinaMincho = Hina_Mincho({
 	variable: "--fonts-hina-mincho",
@@ -17,31 +15,62 @@ const zenOldMincho = Zen_Old_Mincho({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://www.norihama.com/"),
-	title: "本格麻婆豆腐 乘濵楼",
-	description:
-		"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+	metadataBase: new URL("https://norihamaro.vercel.app/"),
+	title: "東大麻婆愛好会",
+	description: "本当に美味しい麻婆豆腐をあなたはまだ知らない。",
+	icons: {
+		icon: [
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_16x16.ico",
+				sizes: "16x16",
+				type: "image/x-icon",
+			},
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_32x32.ico",
+				sizes: "32x32",
+				type: "image/x-icon",
+			},
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_48x48.ico",
+				sizes: "48x48",
+				type: "image/x-icon",
+			},
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_64x64.ico",
+				sizes: "64x64",
+				type: "image/x-icon",
+			},
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_128x128.ico",
+				sizes: "128x128",
+				type: "image/x-icon",
+			},
+			{
+				url: "https://norihamaro.vercel.app/icons/club-icon_256x256.ico",
+				sizes: "256x256",
+				type: "image/x-icon",
+			},
+		],
+	},
 	openGraph: {
-		title: "本格麻婆豆腐 乘濵楼",
-		description:
-			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		url: "https://www.norihama.com/",
+		title: "東大麻婆愛好会",
+		description: "本当に美味しい麻婆豆腐をあなたはまだ知らない。",
+		url: "https://norihamaro.vercel.app/",
 		images: [
 			{
-				url: "https://www.norihama.com/ogp_compressed.png",
+				url: "https://norihamaro.vercel.app/og/og-newcomer_compressed.png",
 				width: 1200,
 				height: 630,
-				alt: "本格麻婆豆腐 乘濵楼",
+				alt: "東大麻婆愛好会",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "本格麻婆豆腐 乘濵楼",
-		description:
-			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["https://www.norihama.com/ogp_compressed.png"],
+		title: "東大麻婆愛好会",
+		description: "本当に美味しい麻婆豆腐をあなたはまだ知らない。",
+		images: ["https://norihamaro.vercel.app/og/og-newcomer_compressed.png"],
 	},
 };
 
@@ -51,34 +80,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html
-			lang="en"
-			className={css({
-				scrollBehavior: "smooth",
-				backgroundColor: "black",
-			})}
-		>
-			<body
-				// className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-				className={`${hinaMincho.variable} ${zenOldMincho.variable}`}
-			>
-				<main
-					className={css({
-						fontFamily: "zenOldMincho", // base font in this website.
-					})}
-				>
-					<MenuProvider>
-						<FreezeWhileMenuOpen>
-							{/* <Header /> */}
-							<div
-								className={css({
-									minHeight: "100lvh",
-								})}
-							>
-								{children}
-							</div>
-						</FreezeWhileMenuOpen>
-					</MenuProvider>
+		<html lang="en" className="scroll-smooth bg-black">
+			<body className={`${hinaMincho.variable} ${zenOldMincho.variable}`}>
+				<main className={zenOldMincho.className}>
+					<div className="w-full min-h-screen">{children}</div>
 				</main>
 			</body>
 		</html>
