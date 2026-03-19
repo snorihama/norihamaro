@@ -17,7 +17,7 @@ const zenOldMincho = Zen_Old_Mincho({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://norihamaro.vercel.app/"),
+	metadataBase: new URL("https://www.norihama.com/"),
 	title: "本格麻婆豆腐 乘濵楼",
 	description:
 		"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 		title: "本格麻婆豆腐 乘濵楼",
 		description:
 			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		url: "https://norihamaro.vercel.app/",
+		url: "https://www.norihama.com/",
 		images: [
 			{
-				url: "https://norihamaro.vercel.app/ogp_compressed.png",
+				url: "https://www.norihama.com/ogp_compressed.png",
 				width: 1200,
 				height: 630,
 				alt: "本格麻婆豆腐 乘濵楼",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 		title: "本格麻婆豆腐 乘濵楼",
 		description:
 			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["https://norihamaro.vercel.app/ogp_compressed.png"],
+		images: ["https://www.norihama.com/ogp_compressed.png"],
 	},
 };
 
