@@ -66,7 +66,7 @@ export const Home = () => {
 					<p className="text-white text-lg">日程</p>
 					<Row>
 						<div className="flex items-end gap-2">
-							<p className="text-white text-2xl">4/11</p>
+							<p className="text-white text-2xl line-through">4/11</p>
 							<Day day="土" />
 						</div>
 					</Row>
