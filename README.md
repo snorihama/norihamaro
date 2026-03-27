@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Vercel Deployment
-[https://norihamalou.vercel.app/](https://norihamalou.vercel.app/)
+[https://www.norihamaro.com/](https://www.norihamaro.com/)
 
 ## Enable Panda CSS
 ```bash
