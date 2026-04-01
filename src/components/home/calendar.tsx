@@ -68,7 +68,7 @@ export const Calendar = () => {
 					</div>
 				</div>
 			</div>
-			<div className="w-full px-8 text-beige space-y-2">
+			<div className="w-full px-4 text-beige space-y-2">
 				<div className="border-2 border-blue-800/70 rounded-md p-4">
 					<div>サーオリ</div>
 					<div className="flex justify-start items-center gap-2">
@@ -87,7 +87,7 @@ export const Calendar = () => {
 						<span>オンライン (Zoom)</span>
 					</div>
 				</div>
-				<div className="border-2 border-green-800/70 rounded-md p-0.5">
+				<div className="border-2 border-green-800/70 rounded-md p-4">
 					<div>体験会</div>
 					<div className="text-xs">
 						乘濵楼の本格麻婆豆腐を一緒に作って食べよう！

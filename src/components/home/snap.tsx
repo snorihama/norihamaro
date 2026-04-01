@@ -14,7 +14,7 @@ const ScrollExperience = ({
 			{/* Section 1: Red */}
 			<section
 				id="red-section"
-				className="h-screen w-full snap-start flex flex-col items-center justify-center bg-red-600 transition-colors duration-700"
+				className="h-screen w-full snap-start flex flex-col items-center justify-center bg-primary transition-colors duration-700"
 			>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -26,7 +26,7 @@ const ScrollExperience = ({
 			</section>
 
 			{/* Gradient Transition */}
-			<section className="h-screen w-full snap-start flex flex-col items-center justify-center bg-gradient-to-b from-red-600 to-zinc-950" />
+			<section className="h-screen w-full snap-start flex flex-col items-center justify-center bg-linear-to-b from-primary to-zinc-950" />
 
 			{/* Section 2: Black */}
 			<section
