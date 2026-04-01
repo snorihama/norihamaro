@@ -1,15 +1,15 @@
+"use client";
 import { RiExternalLinkLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
+import { type FC, useEffect, useRef, useState } from "react";
 import { VerticalText } from "../ui/vertical-text";
 import { Calendar } from "./calendar";
 import { Rect } from "./rect";
-import { Day, IndentRow, Row, Section } from "./section";
-import Snap from "./snap";
 
 const Hero = () => {
 	return (
-		<div className="w-full h-[100lvh] min-h-[100lvh] bg-primary flex flex-col relative">
+		<div className="w-full h-lvh min-h-lvh bg-primary flex flex-col relative">
 			{/* メインエリア: 小画面では重ね、lg以上では横並び */}
 			<div className="flex-1 relative flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-12">
 				{/* 縦書きテキスト */}
@@ -57,98 +57,9 @@ const Hero = () => {
 	);
 };
 
-const _Legacy = () => {
-	return (
-		<div className="h-[100lvh] min-h-[100lvh] flex flex-col items-center justify-start bg-primary p-12 gap-4">
-			<Section text="試食会" />
-			<div className="w-full lg:w-1/3 flex flex-col items-start justify-start gap-1">
-				<p className="text-white text-lg">日程</p>
-				<Row>
-					<div className="flex items-end gap-2">
-						<p className="text-white text-2xl">4/11</p>
-						<Day day="土" />
-					</div>
-				</Row>
-				<Row>
-					<div className="flex items-end gap-2">
-						<p className="text-white text-2xl">4/18</p>
-						<Day day="土" />
-					</div>
-				</Row>
-				<Row>
-					<div className="flex items-end gap-2">
-						<p className="text-white text-2xl">4/26</p>
-						<Day day="日" />
-					</div>
-				</Row>
-				<Row>
-					<div className="flex items-end gap-2">
-						<p className="text-white text-2xl">4/29</p>
-						<Day day="水祝" />
-					</div>
-				</Row>
-			</div>
-
-			<div className="w-full lg:w-1/3 flex items-center gap-2">
-				<p className="text-white text-lg">開催場所</p>
-				<p className="text-white text-2xl">江戸川橋</p>
-			</div>
-
-			<div className="w-full lg:w-1/3 flex items-center gap-2">
-				<p className="text-white text-lg">参加費</p>
-				<p className="text-white text-2xl">500円</p>
-			</div>
-
-			<Section text="出店イベント" />
-			<div className="text-white w-full lg:w-1/3 space-y-3">
-				<Row>
-					<Link href="/events/2025" className="group flex items-center gap-1">
-						<span className="text-xl underline decoration-white/50 group-hover:decoration-white">
-							2025年五月祭
-						</span>
-						<RiExternalLinkLine className="h-4 w-4" />
-					</Link>
-				</Row>
-				<IndentRow tabs={1}>
-					<span className="text-base">🏆 五月祭総選挙模擬店部門第一位</span>
-				</IndentRow>
-			</div>
-
-			<Section text="参加方法" />
-			<div className="w-full flex items-start gap-2 lg:w-1/3">
-				<p className="text-white">
-					試食会の詳細・申し込みは
-					<span className="bg-yellow-300/50 px-1 rounded-lg">
-						乘濱楼公式LINE
-					</span>
-					から！
-					<span className="underline decoration-yellow-300/75">
-						オンライン説明会
-					</span>
-					の告知などの最新情報も順次発信中。まずは友達登録！
-				</p>
-				<Link
-					href="https://lin.ee/5czYTnI"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="shrink-0 w-1/3 h-fit"
-				>
-					<Image
-						src="/line-qr-white.png"
-						width={360}
-						height={360}
-						alt="line qr code"
-						className="bg-transparent"
-					/>
-				</Link>
-			</div>
-		</div>
-	);
-};
-
 const Main = () => {
 	return (
-		<div className="w-full bg-black flex flex-col items-center gap-4">
+		<div className="w-full flex flex-col items-center gap-4 pt-4">
 			<Rect
 				title={
 					<>
@@ -235,30 +146,27 @@ const Main = () => {
 							<span>五月祭・駒場祭に向けて</span>
 						</div>
 						<div>本番の約2ヶ月前から、みんなで協力して準備を進めます！</div>
-						<div className="w-full flex flex-start gap-4">
-							<div className="pt-2 pe-1">
-								<div className="w-3 h-3 flex justify-center items-center">
-									<div className="h-1 w-1 rounded-full bg-beige"></div>
-								</div>
-							</div>
-							<span>
-								<span>麻婆豆腐の試作会</span>
-								<span className="ms-2 bg-primary text-beige px-4">週1</span>
-							</span>
-						</div>
-						<div className="w-full flex flex-start gap-4">
-							<div className="pt-2 pe-1">
-								<div className="w-3 h-3 flex justify-center items-center">
-									<div className="h-1 w-1 rounded-full bg-beige"></div>
-								</div>
-							</div>
-							<span>
-								<span>チームごとのミーティング&作業</span>
-								<span className="ms-2 bg-primary text-beige px-4">週1</span>
-							</span>
-						</div>
+						{["麻婆豆腐の試作会", "チームごとのミーティング&作業"].map(
+							(label) => {
+								return (
+									<div className="w-full flex justify-start gap-4" key={label}>
+										<div className="pt-2 pe-1">
+											<div className="w-3 h-3 flex justify-center items-center">
+												<div className="h-1 w-1 rounded-full bg-beige"></div>
+											</div>
+										</div>
+										<span>
+											<span className="me-2 bg-primary text-beige px-4">
+												週1
+											</span>
+											<span>{label}</span>
+										</span>
+									</div>
+								);
+							},
+						)}
 
-						<div className="w-full flex gap-4">
+						<div className="w-full flex gap-4 mt-4">
 							<div className="pt-2 px-1 ">
 								<div className="bg-primary w-3 h-3 transform rotate-45"></div>
 							</div>
@@ -277,15 +185,42 @@ const Main = () => {
 										</div>
 									</div>
 									<span>
-										{label}
-										<span className="ms-2 bg-primary text-beige px-4">
+										<span className="me-2 bg-primary text-beige px-4">
 											不定期
 										</span>
+										<span>{label}</span>
 									</span>
 								</div>
 							);
 						})}
 					</>
+				}
+			/>
+
+			<Rect
+				title={<span>過去の出店情報</span>}
+				content={
+					<div className="text-gray-200 w-full space-y-2">
+						<div className="w-full flex justify-start gap-4">
+							<div className="pt-2 pe-1">
+								<div className="w-3 h-3 flex justify-center items-center">
+									<div className="h-1 w-1 rounded-full bg-beige"></div>
+								</div>
+							</div>
+							<Link
+								href="/events/2025"
+								className="group flex items-center gap-1"
+							>
+								<span className="text-lg underline decoration-white/50 group-hover:decoration-white">
+									2025年五月祭
+								</span>
+								<RiExternalLinkLine className="h-4 w-4" />
+							</Link>
+						</div>
+						<div className="ps-8">
+							<span className="text-base">🏆 五月祭総選挙模擬店部門第一位</span>
+						</div>
+					</div>
 				}
 			/>
 
@@ -295,7 +230,7 @@ const Main = () => {
 				title={<span>連絡先</span>}
 				content={
 					<div className="w-full flex justify-start gap-2">
-						<div className="text-beige text-left">
+						<div>
 							乘濵楼が少しでも気になってきたら、まずは新歓公式LINEを友だち登録！
 							新歓イベントの詳細や最新情報を順次発信中です。
 						</div>
@@ -320,6 +255,80 @@ const Main = () => {
 	);
 };
 
+const FadingScroll: FC = () => {
+	const [progress, setProgress] = useState(0);
+	const [_contentHeight, setContentHeight] = useState(0);
+	const contentRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		const onScroll = () => {
+			const p = Math.min(Math.max(window.scrollY / window.innerHeight, 0), 1);
+			setProgress(p);
+		};
+
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		window.addEventListener("resize", onScroll);
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+			window.removeEventListener("resize", onScroll);
+		};
+	}, []);
+
+	useEffect(() => {
+		const el = contentRef.current;
+		if (!el) return;
+
+		const update = () => {
+			const h = Math.round(el.getBoundingClientRect().height);
+			setContentHeight(h);
+		};
+
+		update();
+		const ro = new ResizeObserver(update);
+		ro.observe(el);
+
+		return () => ro.disconnect();
+	}, []);
+
+	return (
+		<>
+			<div
+				className="fixed inset-0 h-screen w-full z-0"
+				style={{
+					filter: `blur(${progress * 20}px)`,
+				}}
+			>
+				<Hero />
+			</div>
+
+			{/* overlay to darken the heroarea on scroll */}
+			<div
+				className="fixed inset-0 z-5 bg-black"
+				style={{
+					opacity: progress,
+				}}
+			/>
+
+			<main className="relative z-10 mt-[100vh] bg-primary">
+				<div
+					className="min-h-screen w-full text-white"
+					style={{
+						backgroundColor: `color-mix(in oklab, var(--color-black) ${progress * 100}%, transparent)`,
+					}}
+				>
+					<Main />
+				</div>
+			</main>
+		</>
+	);
+};
+
 export const Home = () => {
-	return <Snap heroArea={<Hero />} contentArea={<Main />} />;
+	return (
+		<>
+			<FadingScroll />
+			{/* <Snap heroArea={<Hero />} contentArea={<Main />} /> */}
+		</>
+	);
 };
