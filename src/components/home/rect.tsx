@@ -12,7 +12,7 @@ export const Rect = ({
 			</div>
 			<div className="w-full p-4">
 				<div className="border-2 border-solid border-primary p-0.5">
-					<div className="border border-solid border-primary p-4 space-y-1">
+					<div className="border border-solid border-primary p-4 space-y-1 text-left">
 						{content}
 					</div>
 				</div>
