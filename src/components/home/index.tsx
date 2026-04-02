@@ -9,7 +9,7 @@ import { Rect } from "./rect";
 
 const Hero = () => {
 	return (
-		<div className="w-full h-lvh min-h-lvh bg-primary flex flex-col relative">
+		<div className="w-full h-dvh min-h-dvh bg-primary flex flex-col relative">
 			{/* メインエリア: 小画面では重ね、lg以上では横並び */}
 			<div className="flex-1 relative flex flex-col lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:px-12">
 				{/* 縦書きテキスト */}
@@ -325,10 +325,5 @@ const FadingScroll: FC = () => {
 };
 
 export const Home = () => {
-	return (
-		<>
-			<FadingScroll />
-			{/* <Snap heroArea={<Hero />} contentArea={<Main />} /> */}
-		</>
-	);
+	return <FadingScroll />;
 };
