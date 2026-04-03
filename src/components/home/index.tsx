@@ -2,7 +2,7 @@
 import { RiExternalLinkLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
-import { type FC, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { VerticalText } from "../ui/vertical-text";
 import { Calendar } from "./calendar";
 import { Rect } from "./rect";
@@ -34,7 +34,7 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<div className="w-full bottom-[12.5lvh] lg:bottom-[8.33lvh] absolute transform translate-y-1/2">
+			<div className="w-full bottom-[12.5dvh] lg:bottom-[8.33dvh] absolute transform translate-y-1/2">
 				{/* message wrapper */}
 				<div className="w-full flex flex-row gap-0 items-center justify-center px-8">
 					<p className="text-white text-lg shrink-0">乘濱楼</p>
@@ -121,7 +121,7 @@ const Main = () => {
 						].map((label) => {
 							return (
 								<div className="w-full flex justify-start" key={label}>
-									<div className="pt-2 pe-1">
+									<div className="pt-2 pe-5">
 										<div className="border-2 border-primary w-3 h-3"></div>
 									</div>
 									<span>{label}</span>
@@ -129,7 +129,7 @@ const Main = () => {
 							);
 						})}
 
-						<div>などなど、どんな方でも大歓迎です</div>
+						<div>などなど、どんな方でも大歓迎です。</div>
 						<div>あなたの居場所であり挑戦の場所になれます。</div>
 					</>
 				}
@@ -140,7 +140,7 @@ const Main = () => {
 				content={
 					<>
 						<div className="w-full flex gap-4">
-							<div className="pt-2 px-1 ">
+							<div className="pt-2 ps-1">
 								<div className="bg-primary w-3 h-3 transform rotate-45"></div>
 							</div>
 							<span>五月祭・駒場祭に向けて</span>
@@ -167,7 +167,7 @@ const Main = () => {
 						)}
 
 						<div className="w-full flex gap-4 mt-4">
-							<div className="pt-2 px-1 ">
+							<div className="pt-2 ps-1">
 								<div className="bg-primary w-3 h-3 transform rotate-45"></div>
 							</div>
 							<span>その他の時期</span>
@@ -255,7 +255,7 @@ const Main = () => {
 	);
 };
 
-const FadingScroll: FC = () => {
+const FadingScroll = () => {
 	const [progress, setProgress] = useState(0);
 	const [_contentHeight, setContentHeight] = useState(0);
 	const contentRef = useRef<HTMLDivElement | null>(null);
