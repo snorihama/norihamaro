@@ -35,7 +35,7 @@ export const Hero = () => {
 					{/* Date with red vertical line */}
 					<div className="flex w-full justify-center items-center">
 						<span className="text-beige text-center text-[1.1rem] tracking-[0.1em] font-[zenOldMincho,serif]">
-							2025年度五月祭
+							2026年度五月祭
 						</span>
 					</div>
 					{/* Main Title */}
@@ -47,7 +47,7 @@ export const Hero = () => {
 						className="w-full object-contain object-left"
 					/>
 					{/* Description */}
-					<p className="text-[#f1ebd7] text-base md:text-[1.15rem] leading-8 max-w-[90vw] md:max-w-[32rem] pt-6 font-[zenOldMincho,serif] [text-shadow:0_2px_8px_rgba(0,0,0,0.3)] text-center md:text-left">
+					<p className="text-[#f1ebd7] text-base md:text-[1.15rem] leading-8 max-w-[90vw] md:max-w-[32rem] pt-6 font-[zenOldMincho,serif] [text-shadow:0_2px_8px_rgba(0,0,0,0.3)] text-left md:text-left">
 						{"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。"}
 						<br />
 						{"高級中華にも引けをとらない本気の味をご賞味あれ。"}

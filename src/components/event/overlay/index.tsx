@@ -62,8 +62,11 @@ export const Overlay: FC = () => {
 	if (!visible) return null;
 
 	return (
-		<button
-			type="button"
+		// biome-ignore lint/a11y/useSemanticElements: Need to wrap the child button with clickable div.
+		// biome-ignore lint/a11y/useKeyWithClickEvents: Does not expect keyboard input in this overlay content.
+		<div
+			role="button"
+			tabIndex={0}
 			className={overlayStyles}
 			style={{
 				animationDelay: totalAnimationDuration,
@@ -82,6 +85,6 @@ export const Overlay: FC = () => {
 					<ForwardIcon />
 				</button>
 			)}
-		</button>
+		</div>
 	);
 };
