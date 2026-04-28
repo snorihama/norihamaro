@@ -2,7 +2,6 @@
 import { type FC, useEffect, useState } from "react";
 import { AnimatedText } from "./AnimatedText/AnimatedText";
 import { ParticleBackground } from "./ParticleBackground/ParticleBackground";
-import { overlayStyles } from "./recipe";
 
 const delay = 0.4;
 const span = 1.5;
@@ -67,7 +66,7 @@ export const Overlay: FC = () => {
 		<div
 			role="button"
 			tabIndex={0}
-			className={overlayStyles}
+			className="w-full h-screen flex items-center justify-center fixed inset-0 bg-black z-[1000] animate-fade-out [animation-fill-mode:forwards]"
 			style={{
 				animationDelay: totalAnimationDuration,
 			}}
