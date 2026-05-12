@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 export const textLineStyle = ({ visible }: { visible: boolean }) =>
 	clsx(
-		"text-xl leading-relaxed mb-[1.2rem] opacity-0",
+		"text-lg leading-relaxed mb-[1.2rem] opacity-0",
 		"bg-[linear-gradient(90deg,#A0A0A0_0%,#E0E0E0_50%,#A0A0A0_100%)]",
 		"text-transparent bg-clip-text [-webkit-text-fill-color:transparent]",
 		"translate-y-[30px] scale-95",

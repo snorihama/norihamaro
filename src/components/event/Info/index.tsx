@@ -39,18 +39,13 @@ const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
 	);
 };
 
-export const Info = ({
-	wait,
-}: {
-	wait: number | null;
-	error: string | null;
-}) => {
+export const Info = () => {
 	return (
 		<Section id="info">
-			<div className="w-full flex flex-col gap-4 text-white text-center">
+			<div className="w-full flex flex-col gap-4 text-white text-left">
 				<AnimatedSection>
 					<p>
-						{"昨年の五月祭で 1000 食超を提供し大きな反響を呼んだ"}
+						{"昨年の五月祭で 2000 食超を提供し大きな反響を呼んだ"}
 						<span className="font-black">{"「本格麻婆豆腐 乘濵楼」"}</span>
 						{"が今年の五月祭に帰ってきます！！"}
 						<br />
@@ -63,9 +58,9 @@ export const Info = ({
 				<AnimatedSection>
 					<SubSection title="開催日程">
 						<div className="w-full text-center text-white">
-							{"第98回五月祭"}
+							{"第99回五月祭"}
 							<br />
-							{"2025年5月24日(土) - 25日(日)"}
+							{"2026年5月16日(土) - 17日(日)"}
 						</div>
 					</SubSection>
 				</AnimatedSection>
@@ -81,7 +76,7 @@ export const Info = ({
 							<div>
 								<span className="text-white underline decoration-white decoration-[0.05rem]">
 									<RiLinksLine className="inline-block h-4 w-4 mx-auto text-white text-center" />
-									{"工学部広場 B3, 4 (スターバックス 東京大学工学部店前)"}
+									{"工学部横丁8, 9"}
 								</span>
 							</div>
 						</button>
@@ -89,22 +84,10 @@ export const Info = ({
 				</AnimatedSection>
 
 				<AnimatedSection>
-					<SubSection title="推定待ち時間">
-						<div className="w-full text-center text-white">
-							約
-							<span className="font-black text-primary text-xl px-1">
-								{wait ? `${wait}` : "..."}
-							</span>
-							分
-						</div>
-					</SubSection>
-				</AnimatedSection>
-
-				<AnimatedSection>
 					<SubSection title="五月祭総選挙">
-						<div className="flex flex-col items-center gap-2 w-full text-center">
+						<div className="flex flex-col items-center gap-2 w-full text-left">
 							乘濵楼へのご投票よろしくお願いいたします。
-							<Link href="https://gogatsusai.jp/98/visitor/project/165">
+							<Link href="https://visitor.gogatsusai.jp/project/057">
 								<span className="relative inline-flex items-center text-white cursor-pointer transition-colors duration-200 underline decoration-white decoration-[0.05rem]">
 									<RiLinksLine
 										style={{

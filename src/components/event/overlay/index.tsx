@@ -2,7 +2,6 @@
 import { type FC, useEffect, useState } from "react";
 import { AnimatedText } from "./AnimatedText/AnimatedText";
 import { ParticleBackground } from "./ParticleBackground/ParticleBackground";
-import { overlayStyles } from "./recipe";
 
 const delay = 0.4;
 const span = 1.5;
@@ -62,9 +61,12 @@ export const Overlay: FC = () => {
 	if (!visible) return null;
 
 	return (
-		<button
-			type="button"
-			className={overlayStyles}
+		// biome-ignore lint/a11y/useSemanticElements: Need to wrap the child button with clickable div.
+		// biome-ignore lint/a11y/useKeyWithClickEvents: Does not expect keyboard input in this overlay content.
+		<div
+			role="button"
+			tabIndex={0}
+			className="w-full h-screen flex items-center justify-center fixed inset-0 bg-black z-[1000] animate-fade-out [animation-fill-mode:forwards]"
 			style={{
 				animationDelay: totalAnimationDuration,
 			}}
@@ -82,6 +84,6 @@ export const Overlay: FC = () => {
 					<ForwardIcon />
 				</button>
 			)}
-		</button>
+		</div>
 	);
 };

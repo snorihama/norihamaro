@@ -27,25 +27,25 @@ export const FoodDrinkMenu = () => {
 						{"塩にぎり"}
 					</div>
 					<div className={clsx(inView && "animate-slide-in-right")}>
-						{"ビール"}
+						{"ステッカー"}
 					</div>
 				</div>
 				<div className="w-1/2 flex flex-col pl-4">
 					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
 						<span className="text-lg font-extrabold text-primary pr-2">
-							{"500"}
+							{"600"}
+						</span>
+						<span>{"円"}</span>
+					</div>
+					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
+						<span className="text-lg font-extrabold text-primary pr-2">
+							{"300"}
 						</span>
 						<span>{"円"}</span>
 					</div>
 					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
 						<span className="text-lg font-extrabold text-primary pr-2">
 							{"200"}
-						</span>
-						<span>{"円"}</span>
-					</div>
-					<div ref={ref} className={clsx(inView && "animate-slide-in-left")}>
-						<span className="text-lg font-extrabold text-primary pr-2">
-							{"500"}
 						</span>
 						<span>{"円"}</span>
 					</div>
