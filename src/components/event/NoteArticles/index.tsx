@@ -4,8 +4,6 @@ import { Section } from "@/components/ui/section";
 
 /* 元noteの埋め込みタグ例: iframe + https://note.com/scripts/embed.js */
 
-/* 高さは https://note.com/scripts/embed.js が postMessage を受けて iframe に反映する（親は算出できない） */
-
 const NOTE_EMBED_URLS = [
 	"https://note.com/embed/notes/n74fc0a9e6a0e",
 	"https://note.com/embed/notes/n54a18d1104f0",
