@@ -4,7 +4,14 @@ import { LeftDecoration } from "./decorations/left";
 import { LeftBottomDecoration } from "./decorations/leftBottom";
 import { RightDecoration } from "./decorations/right";
 import { RightBottomDecoration } from "./decorations/rightBottom";
-export type Tags = "info" | "menu" | "access" | "about-us" | "blog" | "tips";
+export type Tags =
+	| "info"
+	| "menu"
+	| "access"
+	| "about-us"
+	| "blog"
+	| "tips"
+	| "note-articles";
 
 export const isTag = (id: string): id is Tags => {
 	try {
@@ -36,6 +43,8 @@ const idToLabel = (id: Tags): string | typeof HeaderImg => {
 			return "こだわり";
 		case "tips":
 			return "制作秘話";
+		case "note-articles":
+			return "note記事";
 		default:
 			return id as never; // exhaustive matching guard
 	}
