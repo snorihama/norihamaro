@@ -18,7 +18,7 @@ const noteEmbedFrameStyle: CSSProperties = {
 	display: "block",
 	width: "100%",
 	maxWidth: "min(594px, 99%)",
-	margin: "0.75rem 0",
+	margin: 0,
 	padding: 0,
 	position: "static",
 	visibility: "visible",
@@ -28,26 +28,21 @@ const noteEmbedFrameStyle: CSSProperties = {
 export const NoteArticles = () => {
 	return (
 		<Section id="note-articles">
-			<div className="w-full space-y-4">
-				<div className="w-full flex flex-col items-center justify-center gap-4">
-					<div className="w-full flex flex-col justify-center items-center relative">
-						{NOTE_EMBED_URLS.map((src) => (
-							<iframe
-								key={src}
-								title="note 記事の埋め込み"
-								className="note-embed"
-								style={noteEmbedFrameStyle}
-								src={src}
-								height={NOTE_EMBED_IFRAME_HEIGHT}
-								scrolling="no"
-							/>
-						))}
-						<Script
-							src="https://note.com/scripts/embed.js"
-							strategy="lazyOnload"
+			<div className="w-full flex flex-col items-center pt-6">
+				<div className="flex w-full flex-col items-center gap-2">
+					{NOTE_EMBED_URLS.map((src) => (
+						<iframe
+							key={src}
+							title="note 記事の埋め込み"
+							className="note-embed block max-w-full shrink-0"
+							style={noteEmbedFrameStyle}
+							src={src}
+							height={NOTE_EMBED_IFRAME_HEIGHT}
+							scrolling="no"
 						/>
-					</div>
+					))}
 				</div>
+				<Script src="https://note.com/scripts/embed.js" strategy="lazyOnload" />
 			</div>
 		</Section>
 	);
