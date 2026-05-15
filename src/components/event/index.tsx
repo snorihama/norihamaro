@@ -9,6 +9,7 @@ import { FloatingButton } from "./floating-button";
 import { Hero } from "./hero";
 import { Info } from "./Info";
 import { FoodDrinkMenu } from "./menu";
+import { NoteArticles } from "./NoteArticles";
 import { Overlay } from "./overlay";
 import { InitScrollPlugin } from "./scroll-plugin";
 import { Tips } from "./tips";
@@ -29,6 +30,8 @@ export const Main: FC = () => {
 					<AboutUs />
 					<Devider />
 					<Blog />
+					<Devider />
+					<NoteArticles />
 					<Devider />
 					<Tips />
 				</div>
