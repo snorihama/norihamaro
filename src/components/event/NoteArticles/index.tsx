@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/section";
 
 /* 元noteの埋め込みタグ例: iframe + https://note.com/scripts/embed.js */
 
+/* 高さは https://note.com/scripts/embed.js が postMessage を受けて iframe に反映する（親は算出できない） */
+
 const NOTE_EMBED_URLS = [
 	"https://note.com/embed/notes/n74fc0a9e6a0e",
 	"https://note.com/embed/notes/n54a18d1104f0",
@@ -11,7 +13,7 @@ const NOTE_EMBED_URLS = [
 	"https://note.com/embed/notes/n5a949da2f929",
 ] as const;
 
-const NOTE_EMBED_IFRAME_HEIGHT = 350;
+const NOTE_EMBED_IFRAME_HEIGHT = 200;
 
 const noteEmbedFrameStyle: CSSProperties = {
 	border: 0,
@@ -29,7 +31,7 @@ export const NoteArticles = () => {
 	return (
 		<Section id="note-articles">
 			<div className="w-full flex flex-col items-center pt-6">
-				<div className="flex w-full flex-col items-center gap-2">
+				<div className="flex w-full flex-col items-center gap-4">
 					{NOTE_EMBED_URLS.map((src) => (
 						<iframe
 							key={src}
