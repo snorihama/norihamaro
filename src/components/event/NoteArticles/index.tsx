@@ -11,7 +11,7 @@ const NOTE_EMBED_URLS = [
 	"https://note.com/embed/notes/n5a949da2f929",
 ] as const;
 
-const NOTE_EMBED_IFRAME_HEIGHT = 350;
+const NOTE_EMBED_IFRAME_HEIGHT = 200;
 
 const noteEmbedFrameStyle: CSSProperties = {
 	border: 0,
@@ -29,7 +29,7 @@ export const NoteArticles = () => {
 	return (
 		<Section id="note-articles">
 			<div className="w-full flex flex-col items-center pt-6">
-				<div className="flex w-full flex-col items-center gap-2">
+				<div className="flex w-full flex-col items-center gap-4">
 					{NOTE_EMBED_URLS.map((src) => (
 						<iframe
 							key={src}
