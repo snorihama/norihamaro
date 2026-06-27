@@ -14,6 +14,7 @@
 
 	--animate-wiggle: wiggle 1s ease-in-out infinite;
 	--animate-fade-in: fadeIn 0.5s ease forwards;
+	--animate-fadeInFromCenter: fadeInFromCenter 0.5s ease forwards;
 	--animate-fade-out: fadeOut 0.5s ease forwards;
 	--animate-expand-down: expandDown 0.5s ease-in-out;
 	--animate-collapse-up: collapseUp 0.5s ease-in-out;
@@ -44,6 +45,17 @@
 		}
 		100% {
 			opacity: 1;
+		}
+	}
+
+	@keyframes fadeInFromCenter {
+		0% {
+			opacity: 0;
+			transform: scale(0.8); /* Starts slightly smaller */
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1); /* Ends at normal size */
 		}
 	}
 

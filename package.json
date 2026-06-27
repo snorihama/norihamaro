@@ -13,7 +13,7 @@
 		"lint:fix": "npx @biomejs/biome lint --write",
 		"lint:fix-unsafe": "npx @biomejs/biome lint --write --unsafe",
 		"check": "npx @biomejs/biome check",
-		"check:fix": "npx @biomejs/biome check --write"
+		"check:fix": "npx @biomejs/biome check --write --unsafe"
 	},
 	"dependencies": {
 		"@remixicon/react": "^4.6.0",

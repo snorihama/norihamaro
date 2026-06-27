@@ -1,45 +1,33 @@
 import clsx from "clsx";
 import type { FC } from "react";
-import { useInView } from "react-intersection-observer";
 import { Section } from "@/components/ui/section";
+import { AnimatedSection } from "../../ui/fade-in-up";
 
 const Q: FC<{ str: string }> = ({ str }) => {
-	const { ref, inView } = useInView({
-		threshold: 0.2,
-	});
 	return (
-		<div ref={ref} className="w-3/4 self-end">
+		<AnimatedSection className="w-3/4 self-end">
 			<div
 				className={clsx(
 					"w-full h-full p-2 text-left rounded-lg text-white bg-primary",
-					// inView
-					// 	? "text-white bg-primary animate-slide-in-right"
-					// 	: "text-black bg-transparent",
-					inView && "animate-fade-in-up",
 				)}
 			>
 				{str}
 			</div>
-		</div>
+		</AnimatedSection>
 	);
 };
 
 const A: FC<{ str: string }> = ({ str }) => {
-	const { ref, inView } = useInView({
-		threshold: 0.2,
-	});
 	return (
-		<div ref={ref} className="w-full self-start">
+		<AnimatedSection className="w-full self-start">
 			<div
 				className={clsx(
 					"w-full h-full p-2 text-left rounded-lg whitespace-pre-wrap text-white",
-					// inView ? "text-white animate-slide-in-left" : "text-black",
-					inView && "animate-fade-in-up",
 				)}
 			>
 				{str}
 			</div>
-		</div>
+		</AnimatedSection>
 	);
 };
 

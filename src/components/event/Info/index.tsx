@@ -1,9 +1,8 @@
 import { RiInstagramLine, RiLinksLine, RiTwitterXLine } from "@remixicon/react";
-import clsx from "clsx";
 import Link from "next/link";
 import type React from "react";
 import type { FC } from "react";
-import { useInView } from "react-intersection-observer";
+import { AnimatedSection } from "../../ui/fade-in-up";
 import { Section } from "../../ui/section";
 import { scrollToSection } from "../scroll-plugin";
 
@@ -11,6 +10,7 @@ type SubSectionProps = {
 	title: string;
 	children: React.ReactNode;
 };
+
 const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 	return (
 		<div className="w-full text-left">
@@ -19,21 +19,6 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 					{title}
 				</p>
 			</div>
-			{children}
-		</div>
-	);
-};
-
-const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
-	const { ref, inView } = useInView({ threshold: 0.2 });
-	return (
-		<div
-			ref={ref}
-			className={clsx(
-				"will-change-[opacity,transform]",
-				inView ? "animate-fade-in-up" : "opacity-0",
-			)}
-		>
 			{children}
 		</div>
 	);

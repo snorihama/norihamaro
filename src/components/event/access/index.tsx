@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
 
 export const Access = () => {
@@ -15,15 +16,17 @@ export const Access = () => {
 					</span>
 				</div> */}
 
-				<div className="w-full p-4 rounded-2xl">
-					<Image
-						className="w-full rounded-2xl"
-						alt="Mapo Tofu Stand"
-						height={500}
-						width={500}
-						src="/map/map2026_vertical.png"
-					/>
-				</div>
+				<AnimatedSection>
+					<div className="w-full p-4 rounded-2xl">
+						<Image
+							className="w-full rounded-2xl"
+							alt="Mapo Tofu Stand"
+							height={500}
+							width={500}
+							src="/map/map2026_vertical.png"
+						/>
+					</div>
+				</AnimatedSection>
 			</div>
 		</Section>
 	);

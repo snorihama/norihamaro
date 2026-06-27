@@ -1,6 +1,7 @@
 import Script from "next/script";
 import type { CSSProperties } from "react";
 import { Section } from "@/components/ui/section";
+import { AnimatedSection } from "../../ui/fade-in-up";
 
 /* 元noteの埋め込みタグ例: iframe + https://note.com/scripts/embed.js */
 
@@ -31,15 +32,16 @@ export const NoteArticles = () => {
 			<div className="w-full flex flex-col items-center pt-6">
 				<div className="flex w-full flex-col items-center gap-4">
 					{NOTE_EMBED_URLS.map((src) => (
-						<iframe
-							key={src}
-							title="note 記事の埋め込み"
-							className="note-embed block max-w-full shrink-0"
-							style={noteEmbedFrameStyle}
-							src={src}
-							height={NOTE_EMBED_IFRAME_HEIGHT}
-							scrolling="no"
-						/>
+						<AnimatedSection key={src}>
+							<iframe
+								key={src}
+								title="note 記事の埋め込み"
+								className="note-embed block max-w-full shrink-0"
+								style={noteEmbedFrameStyle}
+								src={src}
+								height={NOTE_EMBED_IFRAME_HEIGHT}
+							/>
+						</AnimatedSection>
 					))}
 				</div>
 				<Script src="https://note.com/scripts/embed.js" strategy="lazyOnload" />
