@@ -1,4 +1,5 @@
 import Image from "next/image";
+import self from "@/assets/photos/self.png";
 import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
 
@@ -10,7 +11,7 @@ export const AboutUs = () => {
 					<AnimatedSection>
 						<div className="w-full flex justify-center items-center relative">
 							<Image
-								src="/self.png"
+								src={self}
 								alt="self"
 								height={500}
 								width={500}

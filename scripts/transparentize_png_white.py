@@ -27,5 +27,7 @@ def convert_to_translucent_white(input_path: str, output_path: str):
 
 
 if __name__ == "__main__":
-    target = "../public/line-qr.png"
-    convert_to_translucent_white(target, "../public/line-qr-white.png")
+    # Source QR code lives outside public/; the generated white variant is
+    # bundled from src/assets (imported, not served as a static public URL).
+    target = "assets/qr/line-qr.png"
+    convert_to_translucent_white(target, "../src/assets/branding/line-qr-white.png")

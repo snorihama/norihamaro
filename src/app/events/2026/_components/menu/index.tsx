@@ -1,4 +1,5 @@
 import Image from "next/image";
+import mapoInDish from "@/assets/photos/mapo-in-dish.jpg";
 import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
 
@@ -11,7 +12,7 @@ export const FoodDrinkMenu = () => {
 						height={500}
 						width={500}
 						className="object-contain object-center w-full rounded-[3rem]"
-						src="/mapo-in-dish.jpg"
+						src={mapoInDish}
 						alt="Mapo Tofu Dish"
 					/>
 				</AnimatedSection>

@@ -28,5 +28,5 @@ def convert_to_translucent_black(input_path: str, output_path: str):
 
 
 if __name__ == "__main__":
-    target = "../public/line-qr.png"
-    convert_to_translucent_black(target, "../public/line-qr-translucent.png")
+    target = "assets/qr/line-qr.png"
+    convert_to_translucent_black(target, "assets/qr/line-qr-translucent.png")

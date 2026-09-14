@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import map2026Vertical from "@/assets/map/map2026-vertical.png";
 import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
 
@@ -23,7 +24,7 @@ export const Access = () => {
 							alt="Mapo Tofu Stand"
 							height={500}
 							width={500}
-							src="/map/map2026_vertical.png"
+							src={map2026Vertical}
 						/>
 					</div>
 				</AnimatedSection>

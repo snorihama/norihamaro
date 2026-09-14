@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getFaviconIcons, ogImages } from "@/lib/site-assets";
 import { Main } from "./_components";
 
 export const metadata: Metadata = {
@@ -7,38 +8,7 @@ export const metadata: Metadata = {
 	description:
 		"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 	icons: {
-		icon: [
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_16x16.ico",
-				sizes: "16x16",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_32x32.ico",
-				sizes: "32x32",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_48x48.ico",
-				sizes: "48x48",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_64x64.ico",
-				sizes: "64x64",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_128x128.ico",
-				sizes: "128x128",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/norihamaro_256x256.ico",
-				sizes: "256x256",
-				type: "image/x-icon",
-			},
-		],
+		icon: getFaviconIcons("norihamaro"),
 	},
 	openGraph: {
 		title: "本格麻婆豆腐 乘濵楼",
@@ -47,7 +17,7 @@ export const metadata: Metadata = {
 		url: "https://www.norihamaro.com/",
 		images: [
 			{
-				url: "https://www.norihamaro.com/og/og_compressed.png",
+				url: ogImages.events,
 				width: 1200,
 				height: 630,
 				alt: "本格麻婆豆腐 乘濵楼",
@@ -60,7 +30,7 @@ export const metadata: Metadata = {
 		title: "本格麻婆豆腐 乘濵楼",
 		description:
 			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["https://www.norihamaro.com/og/og_compressed.png"],
+		images: [ogImages.events],
 	},
 };
 

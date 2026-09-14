@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import header from "@/assets/branding/header.png";
+import icon from "@/assets/branding/icon.svg";
+import mapoInPanSquare from "@/assets/photos/mapo-in-pan-square.jpg";
 import { useHeroAreaContext } from "@/context/provider";
 
 export const Hero = () => {
@@ -22,7 +25,7 @@ export const Hero = () => {
 				{/* Logo */}
 				<div className="flex items-center justify-center w-1/2 h-fit z-[2]">
 					<Image
-						src="/icon.svg"
+						src={icon}
 						alt="logo"
 						width={88}
 						height={88}
@@ -40,7 +43,7 @@ export const Hero = () => {
 					</div>
 					{/* Main Title */}
 					<Image
-						src="/header.png"
+						src={header}
 						alt="Norihama-lou icon"
 						width={1000}
 						height={1000}
@@ -57,7 +60,7 @@ export const Hero = () => {
 			{/* Right (Image) */}
 			<div className="absolute md:relative top-0 left-0 h-screen w-screen md:w-[60vw] flex-1 [clip-path:polygon(15%_0,100%_0,100%_100%,8%_100%,0%_50%)]">
 				<Image
-					src="/mapo-in-pan-square.jpg"
+					src={mapoInPanSquare}
 					alt="麻婆豆腐"
 					height={1000}
 					width={1000}

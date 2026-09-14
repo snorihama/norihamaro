@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { FC } from "react";
+import headerMini from "@/assets/branding/header-mini.png";
 import { LeftDecoration } from "./decorations/left";
 import { LeftBottomDecoration } from "./decorations/leftBottom";
 import { RightDecoration } from "./decorations/right";
@@ -63,7 +64,7 @@ export const Section: FC<Props> = ({ id, children }) => {
 					{label === HeaderImg ? (
 						<div className="w-full h-full flex items-center justify-center">
 							<Image
-								src="/header-mini.png"
+								src={headerMini}
 								alt="Norihama-lou icon"
 								width={1000}
 								height={1000}

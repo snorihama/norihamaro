@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import mapoPan from "@/assets/photos/mapo-pan.jpg";
+import material1 from "@/assets/photos/material-1.jpg";
 import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
 
@@ -29,7 +31,7 @@ export const Blog = () => {
 				<SubSection str="食材へのこだわり" />
 				<AnimatedSection>
 					<Image
-						src="/material-1.jpg"
+						src={material1}
 						alt="material-1"
 						height={500}
 						width={500}
@@ -46,7 +48,7 @@ export const Blog = () => {
 				<SubSection str="中華鍋へのこだわり" />
 				<AnimatedSection>
 					<Image
-						src="/mapo-pan.jpg"
+						src={mapoPan}
 						alt="mapo-pan"
 						height={500}
 						width={500}

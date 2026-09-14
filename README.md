@@ -73,8 +73,15 @@ src/
   components/
     ui/                      どのページ・年度からも使い回せる汎用UIパーツのみ
   context/                   React Context（HeroAreaProvider など）
-public/                       画像・アイコンなどの静的アセット
+  lib/
+    site-assets.ts             favicon・OGP画像のURLを型安全に組み立てるヘルパー（後述）
+  assets/                    next/image で読み込む画像（アプリにバンドルされる。詳細は後述）
+    branding/                  ロゴ・ヘッダー・QRコードなど
+    photos/                    料理・人物などの写真
+    map/                       アクセスマップ
+public/                       favicon・OGP画像など「固定のURLで直接アクセスされる」静的アセットのみ
 scripts/                      画像加工用のPythonスクリプト（Next.jsアプリとは独立）
+  assets/                      その加工スクリプトが読み込む「加工前の生画像」（詳細は後述）
 ```
 
 `app/` の各ルート配下にはページの中身が入る `page.tsx`（メタデータ定義のみ）と、そのページ専用のパーツをまとめた `_components/` を置いています。`_components` は Next.js の「private folder」という命名規則で、頭に `_` を付けたフォルダはルーティング対象から除外される、というNext.js公式の仕組みです。これにより、「このフォルダはページの一部にすぎず、単体のURLにはならない」ということが名前だけで分かるようにしています。
@@ -108,7 +115,7 @@ Tailwind CSS v4 を使用しています。カラーパレットや、複数機�
 
 基本はTailwindのユーティリティクラスで十分ですが、`src/components/ui/vertical-text/style.css` や `src/app/events/2026/_components/overlay/AnimatedText/AnimatedText.css` のように、コンポーネントと同じフォルダにプレーンCSSファイルを置き、`import "./xxx.css"` で読み込むケースもあります。これは主に、JS側の値（例：アニメーションの再生時間）を動的にスタイルへ渡す必要がある場合の対処です。
 
-**重要な注意点**：Tailwind CSS はソースコードを静的にスキャンしてCSSを生成するため、次のようにクラス名の一部をテンプレートリテラルで動的に組み立てると、対応するCSSがビルドされず、見た目上何も起こらなくなります（実際に `overlay/AnimatedText` でこの問題が発生しました）。
+**重要な注意点**：Tailwind CSS はソースコードを静的にスキャンしてCSSを生成するため、次のようにクラス名の一部をテンプレートリテラルで動的に組み立てると、対応するCSSがビルドされず、見た目上何も起こらなくなります。
 
 ```tsx
 // NG: durationが変数のため、Tailwindがこのクラスに対応するCSSを生成できない
@@ -132,9 +139,73 @@ className={`[transition:opacity_${duration}s_ease]`}
 }
 ```
 
+## 画像・アセット管理
+
+このプロジェクトでは画像を置き場所によって3種類に分けています。少し複雑なので、迷ったら以下の表と判断基準に沿って決めてください。
+
+| 置き場所 | 何を置くか | 読み込み方 | 安全性 |
+| --- | --- | --- | --- |
+| `public/` | favicon・OGP画像など、**アプリの外部（ブラウザのタブ、SNSのクローラーなど）から固定のURLで直接アクセスされるもの** | `src/lib/site-assets.ts` 経由の文字列パス | △ 共通ヘルパーで一元化されるため重複や表記ゆれは防げるが、ファイルが実在するかまではチェックされない |
+| `src/assets/` | ページ内で `<Image>` として表示する写真・ロゴなど、**アプリの内部でしか使わないもの** | `import` 文で読み込む | ◎ 存在しないファイルを import しようとするとビルドエラーになる |
+| `scripts/assets/` | 加工前の生画像（高解像度のロゴ・圧縮前のOG画像など）。**Next.js アプリからは一切参照しない** | Python スクリプトからのみ読み込む | — |
+
+### なぜ分けているか
+
+- `public/` の中身はそのままの URL（例: `https://www.norihamaro.com/favicons/club-icon/32x32.ico`）で外部から参照されるため、favicon や OGP画像のように **URLが固定でなければ困るもの以外は置かない** ようにしています。ここに写真やロゴまで置いてしまうと、「本当に使われているファイルはどれか」が名前だけでは分からなくなり、今回整理する前のように未使用ファイルが溜まっていく原因になります。
+- `src/assets/` の画像は Next.js のビルド時に `import` で解決されるため、ファイル名を打ち間違えたり、ファイルを消してしまった場合に **ビルドがエラーで教えてくれます**。`public/` の文字列パス（例: `"/mapo-pan.jpg"`）は単なる文字列なので、打ち間違えてもビルドは通ってしまい、本番で画像が表示されずに気づく、という事故が起きやすいです。
+- `scripts/assets/` は Photoshop の元データのようなもので、サイトの表示には直接関係ありません。圧縮前のOG画像（十数MB）や、favicon生成前の高解像度ロゴなどがここに入ります。ここが `public/` と混ざっていると、「配信される完成品」と「加工前の下書き」の見分けがつかなくなります。
+
+### 新しい画像を追加するときの判断基準
+
+新しい画像を追加するときは、次の順に自問してください。
+
+1. **favicon や OGP画像（SNSシェア時のプレビュー画像）か？** → `public/` に置き、`src/lib/site-assets.ts` にパスを追加する。
+2. **ページ内のコンポーネントで `<Image>` として表示するか？** → `src/assets/` の中の適切なフォルダ（`branding/` `photos/` `map/` など、なければ新設してよい）に置き、コンポーネント側で `import` する。
+3. **Pythonスクリプトで圧縮・変換する前の元データか？** → `scripts/assets/` に置く。
+
+判断に迷ったら「このファイルのURLを直接誰かに送ったり、`<meta>` タグに書いたりする必要があるか？」を基準にしてください。必要ならYESの場合は `public/`、それ以外（アプリのコンポーネントの中だけで使う）は `src/assets/` です。
+
+### コード例
+
+`src/assets/` の画像は文字列パスではなく `import` してください。
+
+```tsx
+// NG: 文字列パスだと、ファイル名を打ち間違えても気づけない（ビルドは通ってしまう）
+<Image src="/mapo-pan.jpg" alt="麻婆鍋" width={500} height={500} />
+
+// OK: import することで、存在しないファイルを参照した瞬間にビルドエラーになる
+import mapoPan from "@/assets/photos/mapo-pan.jpg";
+// ...
+<Image src={mapoPan} alt="麻婆鍋" width={500} height={500} />
+```
+
+`public/` 配下の favicon・OGP画像は、`src/lib/site-assets.ts` の `getFaviconIcons()` と `ogImages` を経由してください。直接パスをハードコードすると、ブランド名やドメイン名を含む同じ配列が各ページに重複してしまいます。
+
+```tsx
+// NG: 各ページの metadata に同じURLをハードコードする
+icons: {
+  icon: [
+    { url: "https://www.norihamaro.com/icons/club-icon_16x16.ico", sizes: "16x16", type: "image/x-icon" },
+    // ...サイズの数だけ繰り返し、ページの数だけ重複する
+  ],
+},
+
+// OK: 共通のヘルパーを経由する
+import { getFaviconIcons, ogImages } from "@/lib/site-assets";
+// ...
+icons: {
+  icon: getFaviconIcons("clubIcon"), // "clubIcon" | "norihamaro" から選ぶ
+},
+openGraph: {
+  images: [{ url: ogImages.default, width: 1200, height: 630, alt: "..." }],
+},
+```
+
+新しいブランドの favicon を追加する場合は、`src/lib/site-assets.ts` の `faviconBrands` に1行追加するだけで、`getFaviconIcons()` がすべてのサイズのURLを組み立ててくれます。
+
 ## 画像処理スクリプト（`scripts/`）
 
-Next.js アプリとは独立した、画像加工用の Python ユーティリティです（[uv](https://docs.astral.sh/uv/) で管理）。OG画像の圧縮（`compress_og.py`）や favicon（`.ico`）生成（`png_to_ico.py`）などに使います。通常の開発フローには含まれないため、必要な場合のみ `scripts/` ディレクトリ内で実行してください。
+Next.js アプリとは独立した、画像加工用の Python ユーティリティです（[uv](https://docs.astral.sh/uv/) で管理）。`scripts/assets/` にある加工前の生画像を読み込み、OG画像の圧縮（`compress_og.py`）や favicon（`.ico`）生成（`png_to_ico.py`）を行い、結果を `public/` に書き出します。通常の開発フローには含まれないため、画像を差し替える場合のみ `scripts/` ディレクトリ内で実行してください。
 
 ```bashs
 cd scripts

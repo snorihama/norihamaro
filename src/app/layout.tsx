@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
+import { getFaviconIcons, ogImages } from "@/lib/site-assets";
 import "./globals.css";
 
 const hinaMincho = Hina_Mincho({
@@ -19,38 +20,7 @@ export const metadata: Metadata = {
 	title: "東大麻婆愛好会",
 	description: "本当に美味しい麻婆豆腐をあなたはまだ知らない。",
 	icons: {
-		icon: [
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_16x16.ico",
-				sizes: "16x16",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_32x32.ico",
-				sizes: "32x32",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_48x48.ico",
-				sizes: "48x48",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_64x64.ico",
-				sizes: "64x64",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_128x128.ico",
-				sizes: "128x128",
-				type: "image/x-icon",
-			},
-			{
-				url: "https://www.norihamaro.com/icons/club-icon_256x256.ico",
-				sizes: "256x256",
-				type: "image/x-icon",
-			},
-		],
+		icon: getFaviconIcons("clubIcon"),
 	},
 	openGraph: {
 		title: "東大麻婆愛好会",
@@ -58,7 +28,7 @@ export const metadata: Metadata = {
 		url: "https://www.norihamaro.com/",
 		images: [
 			{
-				url: "https://www.norihamaro.com/og/og-newcomer_compressed.png",
+				url: ogImages.default,
 				width: 1200,
 				height: 630,
 				alt: "東大麻婆愛好会",
@@ -70,7 +40,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "東大麻婆愛好会",
 		description: "本当に美味しい麻婆豆腐をあなたはまだ知らない。",
-		images: ["https://www.norihamaro.com/og/og-newcomer_compressed.png"],
+		images: [ogImages.default],
 	},
 };
 

@@ -3,6 +3,9 @@ import { RiExternalLinkLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import clubIconSquare from "@/assets/branding/club-icon-square.png";
+import headerMini from "@/assets/branding/header-mini.png";
+import lineQrWhite from "@/assets/branding/line-qr-white.png";
 import { VerticalText } from "@/components/ui/vertical-text";
 import { Calendar } from "./calendar";
 import { Rect } from "./rect";
@@ -27,7 +30,7 @@ const Hero = () => {
 					<Image
 						height={1429}
 						width={1429}
-						src="/club-icon-square.png"
+						src={clubIconSquare}
 						alt="club icon"
 						className="rounded-full w-full lg:w-full"
 					/>
@@ -65,7 +68,7 @@ const Main = () => {
 					<>
 						<p>東大麻婆愛好会</p>
 						<Image
-							src="/header-mini.png"
+							src={headerMini}
 							height={428}
 							width={1655}
 							className="h-4 w-fit"
@@ -241,7 +244,7 @@ const Main = () => {
 							className="shrink-0 w-1/3 h-fit"
 						>
 							<Image
-								src="/line-qr-white.png"
+								src={lineQrWhite}
 								width={360}
 								height={360}
 								alt="line qr code"
