@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Main } from "@/components/event";
+import { Main } from "./_components";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.norihamaro.com/"),

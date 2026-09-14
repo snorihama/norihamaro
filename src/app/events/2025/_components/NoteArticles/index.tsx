@@ -1,7 +1,7 @@
 import Script from "next/script";
 import type { CSSProperties } from "react";
+import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
-import { AnimatedSection } from "../../ui/fade-in-up";
 
 /* 元noteの埋め込みタグ例: iframe + https://note.com/scripts/embed.js */
 

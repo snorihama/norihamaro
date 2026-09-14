@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { isTag, type Tags } from "../../ui/section";
+import { isTag, type Tags } from "@/components/ui/section";
 
 export const scrollToSection = (id: Tags) => {
 	if (window === undefined) return;

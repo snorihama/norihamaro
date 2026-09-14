@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Main } from "@/components/event";
+import { Main } from "./_components";
 
 const title = "本格麻婆豆腐 乘濵楼 五月祭特設サイト | 東大麻婆愛好会 乘濵楼";
 const description =

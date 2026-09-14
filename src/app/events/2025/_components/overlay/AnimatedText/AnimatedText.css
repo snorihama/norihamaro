@@ -1,0 +1,14 @@
+/* transition の duration は AnimatedText の `transition` prop から CSS 変数として渡す。
+   Tailwind のクラス名は静的な文字列である必要があり、prop の値を埋め込めないため、
+   duration に依存する transition 指定だけをここに切り出している。 */
+.text-line-transition {
+	transition:
+		opacity var(--text-transition-duration, 3s) cubic-bezier(0.4, 0, 0.2, 1),
+		transform var(--text-transition-duration, 3s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-line-transition::after {
+	transition: width var(--text-transition-duration, 3s)
+		cubic-bezier(0.4, 0, 0.2, 1);
+	transition-delay: 0.5s;
+}

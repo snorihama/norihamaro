@@ -3,7 +3,7 @@ import { RiExternalLinkLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { VerticalText } from "../ui/vertical-text";
+import { VerticalText } from "@/components/ui/vertical-text";
 import { Calendar } from "./calendar";
 import { Rect } from "./rect";
 

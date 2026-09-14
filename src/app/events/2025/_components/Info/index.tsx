@@ -2,8 +2,8 @@ import { RiInstagramLine, RiLinksLine, RiTwitterXLine } from "@remixicon/react";
 import Link from "next/link";
 import type React from "react";
 import type { FC } from "react";
-import { AnimatedSection } from "../../ui/fade-in-up";
-import { Section } from "../../ui/section";
+import { AnimatedSection } from "@/components/ui/fade-in-up";
+import { Section } from "@/components/ui/section";
 import { scrollToSection } from "../scroll-plugin";
 
 type SubSectionProps = {

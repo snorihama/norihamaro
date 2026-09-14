@@ -1,7 +1,7 @@
 "use client";
 import type { FC } from "react";
+import { Devider } from "@/components/ui/devider";
 import { HeroAreaProvider } from "@/context/provider";
-import { Devider } from "../ui/devider";
 import { AboutUs } from "./about-us";
 import { Access } from "./access";
 import { Blog } from "./blog";

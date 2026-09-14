@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { FC } from "react";
+import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
-import { AnimatedSection } from "../../ui/fade-in-up";
 
 const Q: FC<{ str: string }> = ({ str }) => {
 	return (
@@ -83,7 +83,7 @@ export const Tips = () => {
 				},
 				{
 					id: 8,
-					text: "いくつものレシピを試し、食材を何種類も食べ比べ、ようやく辿り着いた\u201c乘濵楼の味\u201d。10種類以上の調味料が肉や豆腐と絡まり、辛さの中に幾重にも旨みと香りが広がる。食べてきた数々の名店の味にも劣らない、究極の一皿です。",
+					text: "いくつものレシピを試し、食材を何種類も食べ比べ、ようやく辿り着いた“乘濵楼の味”。10種類以上の調味料が肉や豆腐と絡まり、辛さの中に幾重にも旨みと香りが広がる。食べてきた数々の名店の味にも劣らない、究極の一皿です。",
 				},
 			],
 		},

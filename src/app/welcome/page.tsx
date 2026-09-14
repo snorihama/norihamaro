@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Home } from "@/components/welcome";
+import { Home } from "./_components";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.norihamaro.com/"),

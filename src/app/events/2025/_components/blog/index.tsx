@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { AnimatedSection } from "@/components/ui/fade-in-up";
 import { Section } from "@/components/ui/section";
-import { AnimatedSection } from "../../ui/fade-in-up";
 
 const SubSection = ({ str }: { str: string }) => {
 	const { ref, inView } = useInView({

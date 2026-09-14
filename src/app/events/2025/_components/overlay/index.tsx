@@ -12,9 +12,12 @@ const texts = [
 	{ id: 3, text: "ご賞味あれ。" },
 ];
 
+// AnimatedText には prop 経由で渡し、AnimatedText.css の CSS 変数として使われる。
+const TRANSITION_SLOW_SECONDS = 3;
+
 const totalAnimationDuration = `calc(
 	${delay}s
-	+ var(--transition-slow)
+	+ ${TRANSITION_SLOW_SECONDS}s
 	+ ${span * (texts.length - 1)}s
 	+ 1s
 )`;
@@ -73,7 +76,12 @@ export const Overlay: FC = () => {
 			onClick={handleOverlayClick}
 		>
 			<ParticleBackground />
-			<AnimatedText texts={texts} delay={delay * 1000} span={span * 1000} />
+			<AnimatedText
+				texts={texts}
+				delay={delay * 1000}
+				span={span * 1000}
+				transition={TRANSITION_SLOW_SECONDS}
+			/>
 			{showSkip && (
 				<button
 					type="button"
